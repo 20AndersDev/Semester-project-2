@@ -1,0 +1,36 @@
+.listing-media {
+    width: 100%;
+    display: flex;
+    background-size: fill;
+    border-radius: 10px;
+    max-height: 400px;
+    object-fit: contain;
+}
+
+.post {
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto; /* Center horizontally */
+    /* Add any other necessary styling for posts */
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+
+.post-content {
+    margin-bottom: 10px;
+}
+
+.post-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #888;
+}

@@ -1,13 +1,7 @@
-const apiUrl = "https://api.noroff.dev/api/v1/auction/listings"
+const baserApiUrl = "https://api.noroff.dev/api/v1";
 
-export async function getAuctions() {
-    try {
-        const response = await fetch(apiUrl);
-        const auctions = await response.json();
-        console.log(auctions);
-    } catch (error) {
-        console.log(error);
-    }
-}
 
-getAuctions();
+// no Auth
+export const apiUrlAllListings =  baserApiUrl + "/auction/listings"
+
+// Auth

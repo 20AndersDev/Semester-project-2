@@ -3,21 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <link rel="stylesheet" href="/dist/css/styles.css">
-    <title>Document</title>
+    <script src="/JS/listings.js" type="module" defer></script>
+    <title>Home</title>
+    <!-- Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-  <div class="container mt-5">
-      <div class="row">
-          <div class="post-container">
-            <div class=""></div>
+  <header>
+    <nav class="navbar navbar-light bg-dark justify-content-center">
+      <a class="navbar-brandr" href="#">Logo and company name</a>
+    </nav>
 
+  </header>
+  <main>
+    <div class="container menu-container">
+      <div class="row">
+          <div class="col-lg-6">
+            <h2> My Profile</h2>
+            <h2> Total credits: </h2>
+            <h2> Create new listing</h2>
+            <button> Logout </button>
           </div>
       </div>
-  </div>
+    </div>
 
-  <script src="/JS/listings.js" type="module"></script>
+    <div class="container listing-container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="post-container">
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+
+
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>

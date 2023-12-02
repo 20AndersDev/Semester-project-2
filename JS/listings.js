@@ -13,10 +13,10 @@ async function getAuctions() {
 }
 
 function displayAuctions(auctions) {
-    const container = document.querySelector('.container'); // Assuming you want to populate the first container
+    const container = document.querySelector('.post-container'); 
     auctions.forEach(auction => {
         const post = document.createElement('div');
-        post.classList.add('post');
+        post.classList.add('post','mb-4');
 
         const media = document.createElement('div');
         media.classList.add('listing-media');
@@ -36,10 +36,10 @@ function displayAuctions(auctions) {
         postContent.classList.add('post-content');
         const description = document.createElement('p');
         description.classList.add('post-description');
-        description.textContent = auction.description;
+        description.textContent = `Description: ${auction.description}`;
         const endDate = document.createElement('p');
         endDate.classList.add('endDate');
-        endDate.textContent = `Ends At: ${new Date(auction.endsAt).toLocaleString()}`;
+        endDate.textContent = ` Bidding ends at: ${new Date(auction.endsAt).toLocaleString()}`;
 
         postContent.appendChild(description);
         postContent.appendChild(endDate);

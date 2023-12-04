@@ -1,6 +1,6 @@
 
 .ul-menu{
-margin-top: 50px;
+ margin-top: 50px;
  position: fixed;
  list-style-type: none;
 }
@@ -46,7 +46,12 @@ margin-top: 50px;
 }
 
 
-
+.div-reg-error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    display: none;
+}
 
 
 

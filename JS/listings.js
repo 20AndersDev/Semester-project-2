@@ -21,7 +21,7 @@ function displayAuctions(auctions) {
         const media = document.createElement('div');
         media.classList.add('listing-media');
         const image = document.createElement('img');
-        image.src = auction.media[0]; // Assuming the first image URL in the 'media' array
+        image.src = auction.media[0]; 
         image.classList.add('listing-media');
         media.appendChild(image);
 
@@ -87,3 +87,6 @@ function displayAuctions(auctions) {
 }
 
 getAuctions();
+
+
+const profileName = document.getElementById('profile-name');

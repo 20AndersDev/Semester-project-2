@@ -88,5 +88,43 @@ function displayAuctions(auctions) {
 
 getAuctions();
 
+const logoutButton = document.createElement('button');
+logoutButton.textContent = 'Logout';
 
+logoutButton.addEventListener('click', () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('name');
+    localStorage.removeItem('credits');
+    localStorage.removeItem('accessToken');
+    window.location.href = '/login/index.html';
+});
+
+const divProfile = document.getElementById('div-profile-name');
 const profileName = document.getElementById('profile-name');
+const newlisting = document.getElementById('div-new-listing');
+const creditCount = document.getElementById('div-credit-amount');
+const loginbtn = document.getElementById('login-btn');
+const registerbtn = document.getElementById('register-btn');
+const buttons = document.getElementById('div-btn');
+const avatar = document.createElement('img');
+avatar.classList.add('avatar-profile');
+avatar.src = localStorage.getItem('avatar');
+
+if (localStorage.getItem('token')) {
+    profileName.textContent = localStorage.getItem('name');
+    divProfile.appendChild(avatar);
+    newlisting.style.display = 'block';
+    creditCount.style.display = 'block';
+    creditCount.textContent = localStorage.getItem('credits');
+    loginbtn.style.display = 'none';
+    registerbtn.style.display = 'none';
+    buttons.style.display = 'block'; 
+    buttons.appendChild(logoutButton);
+} else {
+    profileName.textContent = 'Login or register below';
+    newlisting.style.display = 'none';
+    creditCount.style.display = 'none';
+    loginbtn.style.display = 'block';
+    registerbtn.style.display = 'block';
+    buttons.style.display = 'block'; 
+}

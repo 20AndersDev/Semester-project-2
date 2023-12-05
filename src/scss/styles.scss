@@ -3,7 +3,13 @@
  margin-top: 50px;
  position: fixed;
  list-style-type: none;
+
+    .div-new-listing,.div-credit-amount{
+    display: none;
+    }   
+    
 }
+
 
 
 
@@ -53,6 +59,15 @@
     display: none;
 }
 
+
+.avatar-profile{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    object-fit: cover;
+}
 
 
 

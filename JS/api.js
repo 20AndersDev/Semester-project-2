@@ -6,5 +6,6 @@ export const apiUrlAllListings =  baseApiUrl + "/auction/listings?_seller=true&_
 
 // Auth
 
-export let registerUrl = baseApiUrl + "/auction/auth/register";
-export let loginUrl = baseApiUrl + "/auction/auth/login";
+export const registerUrl = baseApiUrl + "/auction/auth/register";
+export const loginUrl = baseApiUrl + "/auction/auth/login";
+export let singlePostUrl = baseApiUrl + "/auction/listings/<id>";

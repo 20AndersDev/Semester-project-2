@@ -52,15 +52,7 @@ function displayAuctions(auctions) {
        
         const lastBidIndex = auction.bids.length - 1; 
         highestBid.textContent = `Highest bid:  ${lastBidIndex} $`;
-        
-
-
-/*
-        const description = document.createElement('p');
-        description.classList.add('post-description');
-        description.textContent = ` ${auction.description}`;
-        postContent.appendChild(description);
-*/
+    
 
         const endDate = document.createElement('p');
         endDate.classList.add('endDate');
@@ -83,21 +75,19 @@ function displayAuctions(auctions) {
         post.appendChild(postFooter);
 
         container.appendChild(post);
+
+
+        
+        post.addEventListener('click', () => {
+            window.location.href = '/single-Listing/index.html' + '?id=' + auction.id;
+        });
     });
+
 }
 
 getAuctions();
 
-const logoutButton = document.createElement('button');
-logoutButton.textContent = 'Logout';
 
-logoutButton.addEventListener('click', () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('name');
-    localStorage.removeItem('credits');
-    localStorage.removeItem('accessToken');
-    window.location.href = '/login/index.html';
-});
 
 const divProfile = document.getElementById('div-profile-name');
 const profileName = document.getElementById('profile-name');
@@ -110,12 +100,39 @@ const avatar = document.createElement('img');
 avatar.classList.add('avatar-profile');
 avatar.src = localStorage.getItem('avatar');
 
+
+loginbtn.addEventListener('click', () => {
+    window.location.href = '/login/index.html';
+});
+
+registerbtn.addEventListener('click', () => {
+    window.location.href = '/register/index.html';
+});
+
+const logoutButton = document.createElement('button');
+logoutButton.textContent = 'Logout';
+logoutButton.classList.add('btn-danger');
+
+
+logoutButton.addEventListener('click', () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('name');
+    localStorage.removeItem('credits');
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('avatar');
+    window.location.href = '/index.html';
+});
+
+
+
+
+
 if (localStorage.getItem('token')) {
     profileName.textContent = localStorage.getItem('name');
     divProfile.appendChild(avatar);
     newlisting.style.display = 'block';
     creditCount.style.display = 'block';
-    creditCount.textContent = localStorage.getItem('credits');
+    creditCount.textContent = "Credits: " + localStorage.getItem('credits');
     loginbtn.style.display = 'none';
     registerbtn.style.display = 'none';
     buttons.style.display = 'block'; 

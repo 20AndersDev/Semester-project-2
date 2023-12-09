@@ -3,31 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/dist/css/styles.css">
     <script src="/JS/login.js" type="module" defer></script>
     <title>Log in</title>
 </head>
 <body>
-    <h1> Hello world!</h1>
-
-    
-    <div class=" container login-form">
+    <div class="container login-form d-flex">
         <form id="login-form">
-            <div class="login-email-input">
-                <label for="login-email" class="form-label"></label>
-                <input type="email" placeholder="Email" id="login-email" >
+            <div class="form-group">
+                <label for="login-email">Email</label>
+                <input type="email" class="form-control" id="login-email" placeholder="Enter email">
             </div>
-            <div class="login-password-input">
-                <label for="id-password" class="form-label"></label>
-                <input type="password" placeholder="Password" id="login-password" >
+            <div class="form-group">
+                <label for="login-password">Password</label>
+                <input type="password" class="form-control" id="login-password" placeholder="Password">
             </div>
-            <div class="div-login-button">
-                <button> Log in</button>
-
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">Log in</button>
             </div>
             <div>
-                <a href="/register/index.html">Dont have an account? create one here!</a>
+                <a href="/register/index.html">Don't have an account? Create one here!</a>
             </div>
         </form>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

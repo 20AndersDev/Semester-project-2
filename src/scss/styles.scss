@@ -1,71 +1,85 @@
+$primary-color: #ddd;
+$secondary-color: #fff;
+$avatar-size: 50px;
+$border-radius: 10px;
+$avatar-border-radius: 50%;
 
-.ul-menu{
- margin-top: 50px;
- position: fixed;
- list-style-type: none;
-
-    
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
 }
 
-
-
+.ul-menu {
+  margin-top: 50px;
+  position: fixed;
+  list-style-type: none;
+}
 
 .post {
-    border: 1px solid #ddd;
-    background-color: #fff;
-    border-radius: 10px;
-    max-width: 600px;
+  border: 1px solid $primary-color;
+  background-color: $secondary-color;
+  border-radius: $border-radius;
+  max-width: 600px;
 
-    .listing-media {
-        width: 100%;
-        display: flex;
-        background-size: fill;
-        border-radius: 10px 10px 0px 0px;
-        max-height: 400px;
-        object-fit: cover;
-    }
+ 
 
-    .post-header {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 10px;
+  .post-header, .post-footer {
+    @include flex-center;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
 
-        .user-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 10px;
-        }
-    }
-    
-    .post-footer {
-        padding: 20px;
-        color: white;
-        background-color: green;
-        justify-content: center;
-        display: flex;
-        border-radius: 0px 0px 10px 10px;
-    }
+
+
+  .post-footer {
+    padding: 20px;
+    color: white;
+    background-color: green;
+    border-radius: 0px 0px $border-radius $border-radius;
+  }
 }
-
 
 .div-reg-error {
-    color: red;
-    font-size: 12px;
-    margin-top: 5px;
-    display: none;
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+  display: none;
 }
 
 
-.avatar-profile{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+.listing-media, .post-image {
+    width: 100%;
+    @include flex-center;
+    background-size: fill;
+    border-radius: $border-radius $border-radius 0px 0px;
+    max-height: 400px;
+    object-fit: cover;
+  }
+
+.user-avatar, .avatar-profile, .singel-listing-avatar {
+    width: $avatar-size;
+    height: $avatar-size;
+    border-radius: $avatar-border-radius;
     margin-right: 10px;
     margin-bottom: 10px;
     object-fit: cover;
-}
+  }
 
 
+  //single post page
 
+.singlepost-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
+    #singlepost{
+        margin-top: 100px;
+        width: 100%;
+        padding: 20px;
+      }
+  }
+
+  

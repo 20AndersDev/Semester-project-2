@@ -87,8 +87,6 @@ function displayAuctions(auctions) {
 
 getAuctions();
 
-
-
 const divProfile = document.getElementById('div-profile-name');
 const profileName = document.getElementById('profile-name');
 const newlisting = document.getElementById('div-new-listing');

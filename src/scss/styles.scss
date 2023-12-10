@@ -1,85 +1,185 @@
-$primary-color: #ddd;
+$primary-color: #31C48D;
 $secondary-color: #fff;
 $avatar-size: 50px;
 $border-radius: 10px;
 $avatar-border-radius: 50%;
 
-@mixin flex-center {
+#hamburger {
+    display: none;
+    color: white;
+    font-size: 2rem;
+    margin-right: 10px;
+    cursor: pointer;
+
+    @media screen and (max-width: 1150px) {
+      display: block;
+      background-color: $primary-color;
+   
+  }
+}
+
+nav{
+  background-color: $primary-color;
+
+  
+}
+.nav-logo {
+  width: 600px;
+  height: 150px;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+#list-unstyled {
+  
+  display: block;
+  position: fixed;
+  top: 50;
+  left: 0;
+  width: 250px;
+  margin-left: 200px;
+  list-style-type: none;
+  transition: opacity 0.8s ease-in-out;
+
+  @media screen and (max-width: 1150px) {
+    color: white;
+    position: block;
+    display: none;
+    z-index: 999;
+    background-color: $primary-color;
+    height: 100%;
+    top: 160px;
+    margin-left: 0px; 
+    list-style-type: none;
+    
+}
+}
+
+
+.div-profile-name {
   display: flex;
   justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
 }
-
-.ul-menu {
+//lisings page
+.container {
   margin-top: 50px;
-  position: fixed;
-  list-style-type: none;
+  position: relative;
+
+  
+
+  .avatar-profile,
+  .singel-listing-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  .post-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 260px;
+
+    @media screen and (max-width: 1150px) {
+      margin-left: 0px; // Hide menu on smaller screens
+    }
+  
+
+    .post {
+      border: 1px solid #ccc;
+      padding: 20px;
+      margin: 10px;
+      width: 100%; 
+
+      .listing-media {
+        width: 100%; 
+        height: auto;
+        max-height: 200px; 
+        object-fit: cover; 
+        margin-bottom: 10px;
+      }
+
+      .post-header {
+        .title {
+          font-size: 1.5rem;
+          margin-bottom: 5px;
+        }
+
+        .seller {
+          font-size: 1.2rem;
+          color: #888;
+        }
+
+        .user-avatar {
+          width: 40px; 
+          height: 40px;
+          border-radius: 50%; 
+          margin-left: 10px;
+        }
+      }
+
+      .post-content {
+        .highestBid,
+        .endDate {
+          margin-bottom: 10px;
+        }
+      }
+
+      .post-footer {
+        button {
+          background-color: $primary-color;
+          color: white;
+          padding: 8px 16px;
+          border: none;
+          cursor: pointer;
+        }
+      }
+    }
+  }
 }
 
-.post {
+// single listing styling
+.single-card {
   border: 1px solid $primary-color;
   background-color: $secondary-color;
   border-radius: $border-radius;
-  max-width: 600px;
+  max-width: 1000px;
+  margin-bottom: 10px;
+  padding: 10px;
 
- 
-
-  .post-header, .post-footer {
-    @include flex-center;
-    flex-direction: column;
+  .div-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
     margin-bottom: 10px;
   }
 
-
-
-  .post-footer {
-    padding: 20px;
-    color: white;
-    background-color: green;
-    border-radius: 0px 0px $border-radius $border-radius;
-  }
-}
-
-.div-reg-error {
-  color: red;
-  font-size: 12px;
-  margin-top: 5px;
-  display: none;
-}
-
-
-.listing-media, .post-image {
+  .post-image {
     width: 100%;
-    @include flex-center;
-    background-size: fill;
-    border-radius: $border-radius $border-radius 0px 0px;
-    max-height: 400px;
+    height: 200px; 
     object-fit: cover;
-  }
-
-.user-avatar, .avatar-profile, .singel-listing-avatar {
-    width: $avatar-size;
-    height: $avatar-size;
-    border-radius: $avatar-border-radius;
-    margin-right: 10px;
     margin-bottom: 10px;
-    object-fit: cover;
+    border-radius: $border-radius; 
   }
 
-
-  //single post page
-
-.singlepost-container{
+  #bid-div {
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
-    #singlepost{
-        margin-top: 100px;
-        width: 100%;
-        padding: 20px;
-      }
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 
-  
+
+}
+
+
+
+
+
+
+// new lsinig styling
+

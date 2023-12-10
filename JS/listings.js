@@ -1,16 +1,28 @@
 import * as urls from "/JS/api.js"; 
+
 const apiUrlAllListings = urls.apiUrlAllListings;
 
 async function getAuctions() {
     try {
         const response = await fetch(apiUrlAllListings);
-        const auctions = await response.json();
+        let auctions = await response.json();
+
+        // Sort auctions by creation date in descending order
+        auctions.sort((a, b) => {
+            const dateA = new Date(a.createdAt).getTime();
+            const dateB = new Date(b.createdAt).getTime();
+            return dateB - dateA;
+        });
+
         displayAuctions(auctions);
         console.log(auctions);
     } catch (error) {
         console.log(error);
     }
 }
+
+
+
 
 function displayAuctions(auctions) {
     const container = document.querySelector('.post-container'); 
@@ -28,6 +40,9 @@ function displayAuctions(auctions) {
         const postHeader = document.createElement('div');
         postHeader.classList.add('post-header','p-4');
 
+        const sellerInfo = document.createElement('div');
+        sellerInfo.classList.add('seller-info','d-flex','align-items-center');
+
         const title = document.createElement('h1');
         title.classList.add('title');
         title.textContent = auction.title;
@@ -35,13 +50,15 @@ function displayAuctions(auctions) {
 
         const seller = document.createElement('h2');
         seller.classList.add('seller');
-        seller.textContent = ` ${auction.seller.name}`;
-        postHeader.appendChild(seller);
+        seller.textContent = `${auction.seller.name}`;
+        sellerInfo.appendChild(seller);
 
         const userAvatar = document.createElement('img');
         userAvatar.classList.add('user-avatar');
         userAvatar.src = auction.seller.avatar;
-        postHeader.appendChild(userAvatar); 
+        sellerInfo.appendChild(userAvatar); 
+
+        postHeader.appendChild(sellerInfo);
 
         const postContent = document.createElement('div');
         postContent.classList.add('post-content','p-4');
@@ -50,9 +67,14 @@ function displayAuctions(auctions) {
         highestBid.classList.add('highestBid');
 
        
-        const lastBidIndex = auction.bids.length - 1; 
-        highestBid.textContent = `Highest bid:  ${lastBidIndex} $`;
-    
+        let highestAmount = 0;
+        auction.bids.forEach(bid => {
+            if (bid.amount > highestAmount) {
+                highestAmount = bid.amount;
+            }
+
+        });
+        highestBid.textContent = `Highest bid: ${highestAmount} credits`;
 
         const endDate = document.createElement('p');
         endDate.classList.add('endDate');
@@ -87,25 +109,33 @@ function displayAuctions(auctions) {
 
 getAuctions();
 
+
+
+
+
+
+
 const divProfile = document.getElementById('div-profile-name');
+
 const profileName = document.getElementById('profile-name');
 const newlisting = document.getElementById('div-new-listing');
 const creditCount = document.getElementById('div-credit-amount');
 const loginbtn = document.getElementById('login-btn');
-const registerbtn = document.getElementById('register-btn');
-const buttons = document.getElementById('div-btn');
+const buttons = document.getElementById('div-btns');
 const avatar = document.createElement('img');
 avatar.classList.add('avatar-profile');
 avatar.src = localStorage.getItem('avatar');
 
 
+newlisting.addEventListener('click', () => {
+    window.location.href = '/new-listing/index.html';
+});
+
 loginbtn.addEventListener('click', () => {
     window.location.href = '/login/index.html';
 });
 
-registerbtn.addEventListener('click', () => {
-    window.location.href = '/register/index.html';
-});
+
 
 const logoutButton = document.createElement('button');
 logoutButton.textContent = 'Logout';
@@ -120,26 +150,53 @@ logoutButton.addEventListener('click', () => {
     localStorage.removeItem('avatar');
     window.location.href = '/index.html';
 });
+buttons.appendChild(logoutButton);
 
-
-
+const menuName = localStorage.getItem('name')
 
 
 if (localStorage.getItem('token')) {
-    profileName.textContent = localStorage.getItem('name');
+    profileName.textContent = "Hello: "+ menuName;
     divProfile.appendChild(avatar);
     newlisting.style.display = 'block';
     creditCount.style.display = 'block';
     creditCount.textContent = "Credits: " + localStorage.getItem('credits');
     loginbtn.style.display = 'none';
-    registerbtn.style.display = 'none';
+    logoutButton.style.display = 'block'; // Show logout button
     buttons.style.display = 'block'; 
-    buttons.appendChild(logoutButton);
+    
 } else {
     profileName.textContent = 'Login or register below';
     newlisting.style.display = 'none';
     creditCount.style.display = 'none';
     loginbtn.style.display = 'block';
-    registerbtn.style.display = 'block';
+    logoutButton.style.display = 'none'; // Hide logout button
     buttons.style.display = 'block'; 
 }
+
+
+const menu = document.getElementById('list-unstyled');
+const hamburger = document.getElementById('hamburger');
+
+let isMenuOpen = false;
+
+function closeMenu() {
+    menu.style.display = 'none';
+    isMenuOpen = false;
+  }
+
+hamburger.addEventListener('click', () => {
+    if (!isMenuOpen) {
+      menu.style.display = 'block'; // Show the menu
+      isMenuOpen = true;
+    } else {
+      menu.style.display = 'none'; // Hide the menu
+      isMenuOpen = false;
+    }
+  });
+
+  window.addEventListener('scroll', () => {
+    if (isMenuOpen) {
+      closeMenu();
+    }
+  });

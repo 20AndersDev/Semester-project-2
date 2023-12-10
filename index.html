@@ -5,66 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/dist/css/styles.css">
     <script src="/JS/listings.js" type="module" defer></script>
+    <script src="https://kit.fontawesome.com/eed746e6fc.js" crossorigin="anonymous"></script>
     <title>Home | Garage Sale</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
   <header>
-    <nav class="navbar navbar-light bg-dark justify-content-center">
-      <a class="navbar-brandr" href="#">Logo and company name</a>
-    </nav>
-
-  </header>
-  <main>
-    
-      <div class="d-flex">
-        <div class="container menu-container col-lg-4 d-flex">
-          <div class="row">
-              <div class="col-lg-6">
-              <ul class="ul-menu">
-                <li>
-                  <div id="div-profile-logo">
-                    <h2> <strong>Garage Sale</strong></h2>
-                  </div>
-                  <div id="div-profile-name" class="d-flex">
-                    <h2 id="profile-name"> Login to see your profile</h2>
-                  </div>
-                </li>
-                <li>
-                  <div id="div-new-listing">
-                    <h2 id="new-listing"> Create new listing</h2>
-                  </div>
-                </li>
-                <li>
-                  <div id="div-credit-amount">
-                  </div>
-                </li>
-                <li>
-                  <div id="div-btn">  
-                    <button href="/login/index.html" id="login-btn" class="btn-success"> Login </button>
-                    <button href="/register/index.html" id="register-btn" class="btn-success"> register </button>
-                  </div>
-                </li>
-              </ul>    
-            </div>
-          </div>
-        </div>
-
+    <nav class="navbar navbar-light justify-content-center">
+      <i class="fa-solid fa-bars" id="hamburger"></i>
+      <img class="nav-logo" src="/Assets/images/auctionzonefiksa.jpeg">
       
-        <div class="container d-flex mt-5">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="post-container">
-              </div>
+    </nav>
+  </header>
+  <main class="container">
+    <div class="row">
+      <div class="col-lg-2 d-flex"  id="menu">
+        <ul id="list-unstyled">
+          <li class="mb-4">
+            <div id="div-profile-name">
+              <h2 class="text" id="profile-name"></h2>
             </div>
+          </li>
+          <li class="mb-4">
+            <h2 id="div-new-listing"> Create a new listing</h2>
+          </li>
+          <li class="mb-4">
+            <div id="div-credit-amount"></div>
+          </li>
+          <div id="div-btns" class="d-flex justify-content-sm-between">
+            <button href="/login/index.html" class="btn btn-success" id="login-btn">Login</button>
           </div>
+        </ul>
+      </div>
+      <div class="col-lg-10">
+        <div class="post-container  justify-content-center mt-5">
         </div>
       </div>
-
+    </div>
   </main>
-
-
-
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

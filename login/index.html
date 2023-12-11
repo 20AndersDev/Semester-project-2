@@ -4,29 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/dist/css/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="/JS/login.js" type="module" defer></script>
     <title>Log in</title>
 </head>
 <body>
-    <div class="container login-form d-flex">
-        <form id="login-form">
-            <div class="form-group">
-                <label for="login-email">Email</label>
-                <input type="email" class="form-control" id="login-email" placeholder="Enter email">
+    <header>
+        <div class="div-login-logo d-flex justify-content-center">
+            <img src="/Assets/images/auctionZonelogo-white-ok.jpg" class="img-fluid" alt="AuctionZone Logo">
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+        
+            <div class="login-form">
+                <h2 class="text-center mb-4">Log in</h2>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" class="form-control" id="login-email" placeholder="Enter email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" class="form-control" id="login-password" placeholder="Password" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success btn-block">Log in</button>
+                    </div>
+                    <div class="text-center">
+                        <a href="/register/index.html">Don't have an account? Create one here!</a>
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label for="login-password">Password</label>
-                <input type="password" class="form-control" id="login-password" placeholder="Password">
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-success">Log in</button>
-            </div>
-            <div>
-                <a href="/register/index.html">Don't have an account? Create one here!</a>
-            </div>
-        </form>
-    </div>
-
+        </div>
+    </main>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>

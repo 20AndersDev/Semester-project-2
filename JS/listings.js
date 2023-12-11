@@ -156,7 +156,7 @@ const menuName = localStorage.getItem('name')
 
 
 if (localStorage.getItem('token')) {
-    profileName.textContent = "Hello: "+ menuName;
+    profileName.textContent =  menuName;
     divProfile.appendChild(avatar);
     newlisting.style.display = 'block';
     creditCount.style.display = 'block';
@@ -200,3 +200,27 @@ hamburger.addEventListener('click', () => {
       closeMenu();
     }
   });
+
+
+
+  const searchInput = document.getElementById('searchInput');
+
+// Function to filter listings based on search input
+function filterListings() {
+    const searchText = searchInput.value.toLowerCase();
+    const posts = document.querySelectorAll('.post');
+
+    posts.forEach(post => {
+        const title = post.querySelector('.title').textContent.toLowerCase();
+        const seller = post.querySelector('.seller').textContent.toLowerCase();
+
+        if (title.includes(searchText) || seller.includes(searchText)) {
+            post.style.display = 'block'; // Show matching posts
+        } else {
+            post.style.display = 'none'; // Hide non-matching posts
+        }
+    });
+}
+
+// Event listener for input changes
+searchInput.addEventListener('input', filterListings);

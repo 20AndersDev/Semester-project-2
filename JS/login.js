@@ -3,7 +3,7 @@ import { loginUrl  } from "/JS/api.js";
 async function loginUser(url, data) {
     try{
         const loginUserData = {
-            method: "POST",
+            method: "post",
             headers: {
                 "Content-Type": "application/json",
             },

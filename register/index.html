@@ -3,38 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Register</title>
     <link rel="stylesheet" href="/dist/css/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="/JS/register.js" type="module" defer></script>
 </head>
 <body>
+    <header>
+        <div class="div-login-register d-flex justify-content-center">
+            <img src="/Assets/images/auctionZonelogo-white-ok.jpg">
+        </div>
+    </header>
     <main>
-        <div class="container register-form">
-            <form id="reg-form">
-                <div class="register-name-input">
-                    <label for="reg-name" class="form-label">Name</label>
-                    <input type="text" placeholder="Name" id="reg-name">
-                </div>
-                <div class="mb-3">
-                    <label for="reg-email" class="form-label">Email address</label>
-                    <input type="email" id="reg-email" required placeholder="Enter your Noroff email">
-                </div>
-                <div class="register-password-input">
-                    <label for="reg-password" class="form-label">Password</label>
-                    <input type="password" placeholder="Password" id="reg-password">
-                </div>
-                <div class="register-avatar-input">
-                    <label for="reg-avatar" class="form-label">Password</label>
-                    <input type="url" placeholder="Link to avatar" id="reg-avatar">
-                </div>
-                <div class="div-register-button">
-                    <button id="register-button" type="submit">Register</button>
-                </div>
-            </form>
-            <div>
-                <a href="/login/">Already have an account? Log in here!</a>
+        <div class="container">
+            <div class="register-form">
+                <h2 class="text-center mb-4">Register</h2>
+                <form id="reg-form">
+                    <div class="form-group">
+                        <label for="reg-name">Name</label>
+                        <input type="text" class="form-control" id="reg-name" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-email">Email address</label>
+                        <input type="email" class="form-control" id="reg-email" placeholder="Enter your Noroff email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-password">Password</label>
+                        <input type="password" class="form-control" id="reg-password" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-avatar">Avatar URL</label>
+                        <input type="url" class="form-control" id="reg-avatar" placeholder="Link to avatar">
+                    </div>
+                    <div class="form-group">
+                        <button id="register-button" type="submit" class="btn btn-success btn-block">Register</button>
+                    </div>
+                    <div class="text-center">
+                        <small>Already have an account? <a href="/login/">Log in here!</a></small>
+                    </div>
+                </form>
             </div>
         </div>
     </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

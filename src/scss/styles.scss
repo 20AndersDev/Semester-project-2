@@ -4,25 +4,52 @@ $avatar-size: 50px;
 $border-radius: 10px;
 $avatar-border-radius: 50%;
 
-#hamburger {
-    display: none;
-    color: white;
-    font-size: 2rem;
-    margin-right: 10px;
-    cursor: pointer;
 
-    @media screen and (max-width: 1150px) {
-      display: block;
-      background-color: $primary-color;
-   
+
+// Common styles for forms
+.form-common {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 50px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+
+  // Adjustments for small screens
+  @media (max-width: 576px) {
+      margin-top: 20px;
+      box-shadow: none;
+      border: none;
   }
 }
 
-nav{
-  background-color: $primary-color;
-
-  
+.register-form {
+  @extend .form-common;
 }
+
+.login-form {
+  @extend .form-common;
+}
+
+#hamburger {
+  display: none;
+  color: white;
+  font-size: 2rem;
+  margin-right: 10px;
+  cursor: pointer;
+
+  @media screen and (max-width: 1150px) {
+    display: block;
+    background-color: $primary-color;
+  }
+}
+
+nav {
+  background-color: $primary-color;
+}
+
 .nav-logo {
   width: 600px;
   height: 150px;
@@ -31,7 +58,6 @@ nav{
 }
 
 #list-unstyled {
-  
   display: block;
   position: fixed;
   top: 50;
@@ -49,12 +75,10 @@ nav{
     background-color: $primary-color;
     height: 100%;
     top: 160px;
-    margin-left: 0px; 
+    margin-left: 0px;
     list-style-type: none;
-    
+  }
 }
-}
-
 
 .div-profile-name {
   display: flex;
@@ -62,18 +86,17 @@ nav{
   align-items: center;
   margin-bottom: 20px;
 }
-//lisings page
+
+// Listings page
 .container {
   margin-top: 50px;
   position: relative;
 
-  
-
   .avatar-profile,
   .singel-listing-avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+    width: $avatar-size;
+    height: $avatar-size;
+    border-radius: $avatar-border-radius;
     margin-right: 10px;
   }
 
@@ -86,19 +109,18 @@ nav{
     @media screen and (max-width: 1150px) {
       margin-left: 0px; // Hide menu on smaller screens
     }
-  
 
     .post {
       border: 1px solid #ccc;
       padding: 20px;
       margin: 10px;
-      width: 100%; 
+      width: 100%;
 
       .listing-media {
-        width: 100%; 
+        width: 100%;
         height: auto;
-        max-height: 200px; 
-        object-fit: cover; 
+        max-height: 200px;
+        object-fit: cover;
         margin-bottom: 10px;
       }
 
@@ -114,9 +136,9 @@ nav{
         }
 
         .user-avatar {
-          width: 40px; 
+          width: 40px;
           height: 40px;
-          border-radius: 50%; 
+          border-radius: 50%;
           margin-left: 10px;
         }
       }
@@ -141,7 +163,7 @@ nav{
   }
 }
 
-// single listing styling
+// Single listing styling
 .single-card {
   border: 1px solid $primary-color;
   background-color: $secondary-color;
@@ -159,10 +181,10 @@ nav{
 
   .post-image {
     width: 100%;
-    height: 200px; 
+    height: 200px;
     object-fit: cover;
     margin-bottom: 10px;
-    border-radius: $border-radius; 
+    border-radius: $border-radius;
   }
 
   #bid-div {
@@ -172,14 +194,4 @@ nav{
     margin-top: 10px;
     margin-bottom: 10px;
   }
-
-
 }
-
-
-
-
-
-
-// new lsinig styling
-

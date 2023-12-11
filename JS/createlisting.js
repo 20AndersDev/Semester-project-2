@@ -15,7 +15,7 @@ newListingForm.addEventListener('submit', async (event) => {
     event.preventDefault(); // Prevent default form submission behavior
 
     try {
-        // Parse endsAt value to ISO format
+    
         const endsAtISO = new Date(endsAtInput.value).toISOString();
 
         const response = await fetch(createNewListing, {

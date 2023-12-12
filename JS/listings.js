@@ -1,3 +1,4 @@
+
 import * as urls from "/JS/api.js"; 
 
 const apiUrlAllListings = urls.apiUrlAllListings;
@@ -84,17 +85,10 @@ function displayAuctions(auctions) {
         postContent.appendChild(endDate);
 
 
-        const postFooter = document.createElement('div');
-        postFooter.classList.add('post-footer');
-        const bidButton = document.createElement('span');
-        bidButton.textContent = 'Place a Bid';
-
-        postFooter.appendChild(bidButton);
 
         post.appendChild(media);
         post.appendChild(postHeader);
         post.appendChild(postContent);
-        post.appendChild(postFooter);
 
         container.appendChild(post);
 
@@ -109,118 +103,3 @@ function displayAuctions(auctions) {
 
 getAuctions();
 
-
-
-
-
-
-
-const divProfile = document.getElementById('div-profile-name');
-
-const profileName = document.getElementById('profile-name');
-const newlisting = document.getElementById('div-new-listing');
-const creditCount = document.getElementById('div-credit-amount');
-const loginbtn = document.getElementById('login-btn');
-const buttons = document.getElementById('div-btns');
-const avatar = document.createElement('img');
-avatar.classList.add('avatar-profile');
-avatar.src = localStorage.getItem('avatar');
-
-
-newlisting.addEventListener('click', () => {
-    window.location.href = '/new-listing/index.html';
-});
-
-loginbtn.addEventListener('click', () => {
-    window.location.href = '/login/index.html';
-});
-
-
-
-const logoutButton = document.createElement('button');
-logoutButton.textContent = 'Logout';
-logoutButton.classList.add('btn-danger');
-
-
-logoutButton.addEventListener('click', () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('name');
-    localStorage.removeItem('credits');
-    localStorage.removeItem('accessToken');
-    localStorage.removeItem('avatar');
-    window.location.href = '/index.html';
-});
-buttons.appendChild(logoutButton);
-
-const menuName = localStorage.getItem('name')
-
-
-if (localStorage.getItem('token')) {
-    profileName.textContent =  menuName;
-    divProfile.appendChild(avatar);
-    newlisting.style.display = 'block';
-    creditCount.style.display = 'block';
-    creditCount.textContent = "Credits: " + localStorage.getItem('credits');
-    loginbtn.style.display = 'none';
-    logoutButton.style.display = 'block'; // Show logout button
-    buttons.style.display = 'block'; 
-    
-} else {
-    profileName.textContent = 'Login or register below';
-    newlisting.style.display = 'none';
-    creditCount.style.display = 'none';
-    loginbtn.style.display = 'block';
-    logoutButton.style.display = 'none'; // Hide logout button
-    buttons.style.display = 'block'; 
-}
-
-
-const menu = document.getElementById('list-unstyled');
-const hamburger = document.getElementById('hamburger');
-
-let isMenuOpen = false;
-
-function closeMenu() {
-    menu.style.display = 'none';
-    isMenuOpen = false;
-  }
-
-hamburger.addEventListener('click', () => {
-    if (!isMenuOpen) {
-      menu.style.display = 'block'; // Show the menu
-      isMenuOpen = true;
-    } else {
-      menu.style.display = 'none'; // Hide the menu
-      isMenuOpen = false;
-    }
-  });
-
-  window.addEventListener('scroll', () => {
-    if (isMenuOpen) {
-      closeMenu();
-    }
-  });
-
-
-
-  const searchInput = document.getElementById('searchInput');
-
-// Function to filter listings based on search input
-function filterListings() {
-    const searchText = searchInput.value.toLowerCase();
-    const posts = document.querySelectorAll('.post');
-
-    posts.forEach(post => {
-        const title = post.querySelector('.title').textContent.toLowerCase();
-        const seller = post.querySelector('.seller').textContent.toLowerCase();
-
-        if (title.includes(searchText) || seller.includes(searchText)) {
-            post.style.display = 'block'; // Show matching posts
-        } else {
-            post.style.display = 'none'; // Hide non-matching posts
-        }
-    });
-}
-
-// Event listener for input changes
-searchInput.addEventListener('input', filterListings);

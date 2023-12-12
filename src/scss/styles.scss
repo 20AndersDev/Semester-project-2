@@ -1,8 +1,151 @@
 $primary-color: #31C48D;
 $secondary-color: #fff;
-$avatar-size: 50px;
-$border-radius: 10px;
+$avatar-size: 40px;
+$border-radius: 20px;
 $avatar-border-radius: 50%;
+
+nav.navbar {
+  background-color: $primary-color;
+  padding: 10px 20px;
+}
+
+.navbar-brand img.nav-logo {
+  max-width: 150px;
+  height: auto;
+  margin-right: 10px;
+  object-fit: contain;
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler-icon {
+  background-color: $secondary-color;
+}
+
+.navbar-nav.profile-info {
+  align-items: center;
+
+  #div-credit-amount {
+    margin-right: 20px;
+  }
+
+  #login-btn {
+    margin-right: 20px;
+  }
+}
+
+.form-inline {
+  display: flex;
+  align-items: center;
+
+  .form-control {
+    margin-right: 10px;
+  }
+}
+
+.btn-outline-success {
+  color: $primary-color;
+  border-color: $primary-color;
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .navbar-collapse {
+    background-color: $primary-color;
+    padding: 10px;
+
+    .navbar-nav {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 10px;
+
+      .nav-item {
+        margin-right: 0;
+        margin-bottom: 10px;
+
+        .nav-link {
+          color: $secondary-color;
+        }
+      }
+    }
+
+    .navbar-nav.profile-info {
+      display: none;
+    }
+
+    .form-inline {
+      margin-top: 10px;
+      justify-content: center;
+
+      .form-control {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+    }
+
+    .btn-outline-success {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+header {
+  background-color: #31C48D;
+}
+
+.navbar-brand img {
+  width: 300px; /* Adjust the logo size */
+  height: auto; /* Maintain aspect ratio */
+  margin-right: 10px;
+  object-fit: cover; /* Keep the logo contained within its space */
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  color: $secondary-color;
+}
+
+#div-credit-amount {
+  margin-right: 20px; /* Adjust spacing */
+}
+
+#login-btn {
+  margin-right: 20px; /* Adjust spacing */
+}
+
+/* Additional styles for responsiveness */
+@media screen and (max-width: 1150px) {
+  #hamburger {
+    display: block;
+  }
+
+  .navbar-collapse {
+    background-color: $primary-color;
+    padding: 10px; /* Adjust padding */
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 10px; /* Adjust spacing */
+  }
+
+  .navbar-nav .nav-item {
+    margin-right: 0; /* Remove right margin for menu items */
+    margin-bottom: 10px; /* Adjust vertical spacing */
+  }
+
+  .navbar-nav .nav-link {
+    color: $secondary-color;
+  }
+
+  .navbar-nav.profile-info {
+    display: none; /* Hide profile info on collapse */
+  }
+}
 
 
 
@@ -46,9 +189,6 @@ $avatar-border-radius: 50%;
   }
 }
 
-nav {
-  background-color: $primary-color;
-}
 
 .nav-logo {
   width: 600px;
@@ -84,7 +224,22 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+.avatar-profile,
+.singel-listing-avatar {
+  width: $avatar-size;
+  height: $avatar-size;
+  border-radius: $avatar-border-radius;
+  display: flex;
+  align-items: center;
 }
 
 // Listings page
@@ -92,13 +247,7 @@ nav {
   margin-top: 50px;
   position: relative;
 
-  .avatar-profile,
-  .singel-listing-avatar {
-    width: $avatar-size;
-    height: $avatar-size;
-    border-radius: $avatar-border-radius;
-    margin-right: 10px;
-  }
+ 
 
   .post-container {
     display: flex;
@@ -135,12 +284,7 @@ nav {
           color: #888;
         }
 
-        .user-avatar {
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          margin-left: 10px;
-        }
+        
       }
 
       .post-content {

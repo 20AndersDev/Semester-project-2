@@ -12,36 +12,40 @@
 </head>
 <body>
   <header>
-    <nav class="navbar navbar-light justify-content-center">
-      <i class="fa-solid fa-bars" id="hamburger"></i>
-      <img class="nav-logo" src="/Assets/images/auctionzonefiksa.jpeg">
-      
+    <nav class="navbar navbar-expand-lg">
+      <a class="navbar-brand" href="#">
+        <img class="nav-logo" src="/Assets/images/auctionzonefiksa.jpeg" alt="Logo">
+      </a>
+      <button id="hamburger" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" id="searchInput" type="search" placeholder="Search..." aria-label="Search">
+          <button class="btn btn-info my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        <div class="navbar-nav profile-info d-flex align-items-center">
+          <span class="nav-item d-flex" id="div-profile-name">
+            <p class="text" id="profile-name"></p>
+            <img id="nav-img" >
+          </span>
+          <span class="nav-item" id="div-new-listing">
+          </span>
+          <span class="nav-item">
+            <div id="div-credit-amount"></div>
+          </span>
+        </div>
+        <div id="div-btns" class="d-flex justify-content-sm-between">
+          <button href="/login/index.html" class="btn btn-success" id="login-btn">Login</button>
+        </div>
+        
+      </div>
     </nav>
   </header>
   <main class="container">
     <div class="row">
-      <div class="col-lg-2 d-flex"  id="menu">
-        <ul id="list-unstyled">
-          <li class="mb-4">
-            <div id="div-profile-name">
-              <h2 class="text" id="profile-name"></h2>
-            </div>
-          </li>
-          <li class="mb-4">
-            <h2 id="div-new-listing"> Create a new listing</h2>
-          </li>
-          <li class="mb-4">
-            <div id="div-credit-amount"></div>
-          </li>
-          <div id="div-btns" class="d-flex justify-content-sm-between">
-            <button href="/login/index.html" class="btn btn-success" id="login-btn">Login</button>
-          </div>
-        </ul>
-      </div>
       <div class="col-lg-10">
-        <div class="search-container mt-3 mb-3">
-          <input type="text" id="searchInput" class="form-control" placeholder="Search...">
-      </div>
         <div class="post-container  justify-content-center mt-5">
         </div>
       </div>

@@ -26,7 +26,7 @@ async function getAuctions() {
 
 
 function displayAuctions(auctions) {
-    const container = document.querySelector('.post-container'); 
+    const container = document.getElementById('post-container'); 
     auctions.forEach(auction => {
         const post = document.createElement('div');
         post.classList.add('post','mb-4');
@@ -80,6 +80,11 @@ function displayAuctions(auctions) {
         const endDate = document.createElement('p');
         endDate.classList.add('endDate');
         endDate.textContent = ` Bidding ends at: ${new Date(auction.endsAt).toLocaleString()}`;
+
+        if(new Date(auction.endsAt) < new Date()) {
+            endDate.textContent = 'Bidding has ended';
+            endDate.style.backgroundColor = 'red';
+        }
 
         postContent.appendChild(highestBid);
         postContent.appendChild(endDate);

@@ -117,6 +117,8 @@ function displaySingleListing(listing) {
     if (new Date(listing.endsAt) < new Date()) {
         bidButton.disabled = true;
         bidButton.textContent = 'Bidding has ended';
+        bidButton.style.backgroundColor = 'red';
+        endDate.style.display = 'none';
 
 
         // Hide the bid input field
@@ -126,6 +128,8 @@ function displaySingleListing(listing) {
             const bidAmount = parseFloat(bidInput.value); 
             if (!isNaN(bidAmount)) {
                 await placeBid(bidAmount); 
+                localStorage.setItem('credits', localStorage.getItem('credits') - bidAmount);
+                window.location.reload();
             } else {
                 console.error('Invalid bid amount');
             }
@@ -180,7 +184,7 @@ function displaySingleListing(listing) {
 
     bids.forEach(bid => {
         const bidDiv = document.createElement('div');
-        bidDiv.classList.add('bid-div', 'd-flex', 'justify-content-between');
+        bidDiv.classList.add('bid-div', 'd-flex', 'justify-content-center');
     
         const bidUser = document.createElement('p');
         bidUser.classList.add('bid-user', 'p-4');

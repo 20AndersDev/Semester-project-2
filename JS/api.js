@@ -2,7 +2,7 @@ const baseApiUrl = "https://api.noroff.dev/api/v1";
 
 
 // no Auth
-export const apiUrlAllListings =  baseApiUrl + "/auction/listings?_seller=true&_bids=true&created=true&_active=true&sort=created&sortOrder=desc";
+export const apiUrlAllListings =  baseApiUrl + "/auction/listings?_seller=true&_bids=true&created=true&sort=created&sortOrder=desc";
 
 // Auth
 

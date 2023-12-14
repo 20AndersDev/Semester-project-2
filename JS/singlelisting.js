@@ -108,11 +108,22 @@ function displaySingleListing(listing) {
     bidButton.textContent = 'Place a bid';
     listingInfo.appendChild(bidButton);
 
+    
+
+    
+if(accessToken == null) {
+    bidButton.textContent = 'Login to place a bid';
+    bidButton.addEventListener('click', () => {
+        window.location.href = '/login/index.html';
+    });
+    bidInput.style.display = 'none';
+} else{
+    bidButton.textContent = 'Place a bid';
     bidInput.addEventListener('input', () => {
-        // Replace non-numeric characters with an empty string
         bidInput.value = bidInput.value.replace(/[^0-9]/g, '');
     });
 
+}
 
     if (new Date(listing.endsAt) < new Date()) {
         bidButton.disabled = true;
@@ -225,3 +236,4 @@ function displaySingleListing(listing) {
 }   
 
 getSinglePost();
+

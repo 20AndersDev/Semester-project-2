@@ -1,7 +1,10 @@
 
+import { METHODS } from 'http';
 import  * as url from './api.js';
 
 const singleUserUrl = url.singleUserUrl;
+const bidUrl = url.profileBids;
+
 const profileUrl = singleUserUrl.replace('<name>', localStorage.getItem('name'));
 console.log(profileUrl);
 const accessToken = localStorage.getItem('token');
@@ -23,11 +26,22 @@ async function getProfile() {
     }
 }
 
+
+async function profileBids(){
+    try{
+        method: 'GET',
+        headers: {
+            
+        }
+    }
+}
+
 function displayProfile(profile) {
     const profileName = profile.name;
     const avatar = profile.avatar;
     const listing = profile._count.listings;
     const credits = profile.credits;
+    const 
     console.log(credits);
     console.log(listing);
     console.log(avatar);

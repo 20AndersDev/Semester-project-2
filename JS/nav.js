@@ -5,11 +5,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const navName = document.getElementById('profile-name'); 
 
     if (profileName !== null) {
-        navName.textContent = profileName; 
+
+        
+        const a = document.createElement('a');
+        // Set the href attribute to the URL you want to link to
+        a.href = '/profile/index.html'; // replace with your URL
+        // Set the text content to the profile name
+        a.textContent = profileName;
+        // Append the anchor element to the navName element
+        navName.appendChild(a);
     } else {
         navName.textContent = 'Log in to start bidding';
     }
 });
+
 
 document.addEventListener('DOMContentLoaded', function() {
     const profileAvatar = localStorage.getItem('avatar');

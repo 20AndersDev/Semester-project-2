@@ -11,5 +11,5 @@ export const loginUrl = baseApiUrl + "/auction/auth/login";
 export const singlePostUrl = baseApiUrl + "/auction/listings/<id>?_seller=true&_bids=true";
 export const placeBid = baseApiUrl + "/auction/listings/<id>/bids";
 export const createListing = baseApiUrl + "/auction/listings";
-export const singleUserUrl = baseApiUrl + "/auction/profiles/<name>";  
+export const singleUserUrl = baseApiUrl + "/auction/profiles/<name>?_listings=true";  
 export const profileBids = baseApiUrl + "/auction/profiles/<name>/bids/";

@@ -5,134 +5,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/dist/css/styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="/JS/search.js" type="module" defer></script>
     <script src="/JS/nav.js"  type="module" defer></script>
-    <script src="/JS/udpatemedia.js" type="module" defer> </script>
     <script src="https://kit.fontawesome.com/eed746e6fc.js" crossorigin="anonymous"></script>
     <script src="/JS/profile.js" type="module" defer></script>
     <title>Document</title>
 </head>
 <body>
-    <header >
-        <nav class="navbar navbar-expand-lg w-100">
-          <a class="navbar-brand" href="#">
-              <img class="nav-logo" src="/Assets/images/auctionzonefiksa.jpeg" alt="Logo">
-          </a>
-    
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-          </button>
-    
-          <div class="collapse navbar-collapse" id="navbarNav">
-              <div class="d-flex justify-content-around align-items-center w-100">
-                <a href="../index.html"><h5 id="newlisting">Home</h5></a>
-                <a href="/new-listing/index.html"><h5 id="newlisting">Create a new Listing</h5></a>
-    
-                  
-                  <form class="form-inline my-2 my-lg-0">
-                    <div class="input-group">
-                        <input class="form-control" id="searchInput" type="search" placeholder="Search..." aria-label="Search" style="width: 300px;">
-                        <div class="input-group-append">
-                            <button class="btn btn-success" type="submit" id="btn-search">Search</button>
-                        </div>
+  <header>
+    <nav class="navbar navbar-expand-lg w-100">
+        <a class="navbar-brand" href="#">
+            <img class="nav-logo" src="/Assets/images/auctionzonefiksa.jpeg" alt="Logo">
+        </a>
+
+        <button  class="navbar-toggler ml-2 hamburger" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" >
+            <i class="fa fa-bars"></i>
+        </button>
+
+        <div class="collapse navbar-collapse flex-column flex-lg-row" id="navbarNav">
+            <a href="../index.html"><h5 id="newlisting">Home</h5></a>
+            <a href="/new-listing/index.html"><h5 id="newlisting">Create a new Listing</h5></a>
+
+            <form class="form-inline my-2 my-lg-0">
+                <div class="input-group">
+                    <input class="form-control" id="searchInput" type="search" placeholder="Search..." aria-label="Search" style="width: 300px;">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-success" id="btn-search">Search</button>
                     </div>
-                </form>
-                  
-    
-                  <div>
-                    <div class="d-flex align-items-center mr-3">
-                      <img id="nav-img" class="img-fluid" src="/Assets/images/defaultAvatar.jpeg" alt="Profile Image">
-                      
-                    <div>
-                    <h4 class="text ml-2" id="profile-name"></h4>
-                    
+                </div>
+            </form>
+
+            <div class="d-flex align-items-center mr-3">
+                <img id="nav-img" class="img-fluid" src="/Assets/images/defaultAvatar.jpeg" alt="Profile Image">
+                <div>
+                    <h5 class="text ml-2" id="profile-name"></h5>
                     <div id="div-credit-amount" class="d-flex align-items-center">
                         <i class="fa-solid fa-coins" id="creditIcon" style="color: #ffff00;"></i>
-                        <h4 id="credit-count" class="ml-1 mr-2"></h4>
+                        <h5 id="credit-count" class="ml-1 mr-2"></h5>
                     </div>
-                    
-                    
-                  </div>
-                  <div id="div-btns">
-      
-                  </div>
-                  
                 </div>
-                
-              </div>
             </div>
-                
-                  <button id="hamburger" class="navbar-toggler ml-2" type="button" data-toggle="collapse" data-target="#navbarNav"
-                      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa fa-bars"></i>
-                  </button>
+
+            <div id="div-btns">
+                <!-- Other buttons or elements here -->
             </div>
-          </div>
-      </nav>
-        
-        
-    </header>
+        </div>
+    </nav>
+</header>
+
     <main>
       <div class="container">
         <div class="row">
           <div class="col-12" id="profile-container">
-            <div class="profile-image-container">
-                <div id="profile-avatar">
-                    <div id="avatar-img">
-
-                    </div>
-                    <div id="avatar-btns">
-                        <button type="button" id="btn-edit-avatar" class="btn btn-primary" data-toggle="modal" data-target="#avatar-input-modal">Update Avatar</button>
-
-                        <div class="modal" tabindex="-1" role="dialog" id="avatar-input-modal">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                    <h5 class="modal-title">Upload Avatar</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    </div>
-                                    <div class="modal-body">
-                                    <input type="url" placeholder="link to avatar:" id="input-media">
-                                    </div>
-                                    <div class="modal-footer">
-                                    <button type="submit"  class="btn btn-primary" id="upload-btn">Upload</button>
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
+            <div id="profile-avatar">
+                <div id="avatar-img">
 
                 </div>
+                <div id="avatar-btns">
+                  <button id="btn-edit-avatar" class="btn btn-primary">Update Avatar</button>
+                </div>
+
             </div>
             <div id="profile-info">
 
             </div>
-            
-          </div>
-
-          
-
-          <div id="profile-listings" class="d-flex justify-content-center w-100" >
-            <ul class="nav nav-tabs d-flex justify-content-center" id="myTab" role="tablist" >
-              <li class="nav-item">
-                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Bids</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">listings</a>
-              </li>
-            </ul>
-            <div class="tab-content" id="myTabContent">
-              <div class="tab-pane fade show active" id="Bids" role="tabpanel" aria-labelledby="home-tab"></div>
-              <div class="tab-pane fade" id="listings" role="tabpanel" aria-labelledby="profile-tab"></div>
+            <div id="profile-listings">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Bids</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">listings</a>
+                  </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                  <div class="tab-pane fade show active" id="Bids" role="tabpanel" aria-labelledby="home-tab">...</div>
+                  <div class="tab-pane fade" id="listings" role="tabpanel" aria-labelledby="profile-tab">
+                    
+                  </div>
+                </div>
             </div>
-        </div>
+          </div>
       </div>
-
     </main>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

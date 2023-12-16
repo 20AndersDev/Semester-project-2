@@ -90,13 +90,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-const hamburgermenu = document.getElementById('hamburger');
-
-document.addEventListener('DOMContentLoaded', function() {
-    if (window.location.s !== '/index.html') {
-        hamburgermenu.style.display = 'none';
-    }
-});
 
 
 const searchbtn = document.getElementById('btn-search');

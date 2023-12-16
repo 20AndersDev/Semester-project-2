@@ -2,13 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=, initial-scale=1.0">
     <link rel="stylesheet" href="/dist/css/styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="/JS/nav.js" type="module" defer></script>
-    <script src="/JS/singlelisting.js" type="module" defer></script>
-    <script src="https://kit.fontawesome.com/eed746e6fc.js" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <script src="/JS/search.js" type="module" defer></script>
+    <title>Search results</title>
 </head>
 <body>
     <header >
@@ -27,14 +26,15 @@
                 <a href="/new-listing/index.html"><h5 id="newlisting">Create a new Listing</h5></a>
     
                   
-                  <form class="form-inline my-2 my-lg-0">
-                    <div class="input-group">
-                        <input class="form-control" id="searchInput" type="search" placeholder="Search..." aria-label="Search" style="width: 300px;">
-                        <div class="input-group-append">
-                            <button class="btn btn-success" type="submit">Search</button>
+                    <form class="form-inline my-2 my-lg-0">
+                        <div class="input-group">
+                            <input class="form-control" id="searchInput" type="search" placeholder="Search..." aria-label="Search" style="width: 300px;">
+                            <div class="input-group-append">
+                            <button type="submit" class="btn btn-success" id="btn-search">Search</button>
+        
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
                   
     
                   <div>
@@ -42,7 +42,7 @@
                       <img id="nav-img" class="img-fluid" src="/Assets/images/defaultAvatar.jpeg" alt="Profile Image">
                       
                     <div>
-                    <h4 class="text ml-2" id="profile-name">Profile Name</h4>
+                    <h4 class="text ml-2" id="profile-name"></h4>
                     
                     <div id="div-credit-amount" class="d-flex align-items-center">
                         <i class="fa-solid fa-coins" id="creditIcon" style="color: #ffff00;"></i>
@@ -70,42 +70,14 @@
         
         
     </header>
-    <main>
-        <div class="container mt-4">
-            <div class="row d-flex justify-content-center align-items-center">
-                <div class="col-lg-8">
-                    <div class="single-card">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div id="media-container">
-                                    <!-- Media content goes here -->
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div id="listing-info">
-                                    <div id="title">
-
-                                    </div>
-                                    <div id="seller">
-
-                                    </div>
-                                    <div id="description">
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="bid-div">
-                            <div id="bidders" class="p-5">
-                                <h2 class="text-center mb-4"> Bids</h2>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <main class="container col-12">
+        <div class="row">
+          <div class="col d-flex justify-content-center">
+            <div class=" justify-content-center mt-5" id="post-container">
             </div>
+          </div>
         </div>
-    </main>
+      </main>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>

@@ -17,20 +17,22 @@
           <img class="nav-logo" src="/Assets/images/auctionzonefiksa.jpeg" alt="Logo">
       </a>
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" id="hamburger">
           <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarNav">
           <div class="d-flex justify-content-around align-items-center w-100">
-              <a href="/new-listing/index.html"><h4 id="newlisting">Create a new Listing</h4></a>
+            <a href="../index.html"><h5 id="newlisting">Home</h5></a>
+            <a href="/new-listing/index.html"><h5 id="newlisting">Create a new Listing</h5></a>
 
               
               <form class="form-inline my-2 my-lg-0">
                 <div class="input-group">
                     <input class="form-control" id="searchInput" type="search" placeholder="Search..." aria-label="Search" style="width: 300px;">
                     <div class="input-group-append">
-                        <button class="btn btn-success" type="submit">Search</button>
+                      <button type="submit" class="btn btn-success" id="btn-search">Search</button>
+
                     </div>
                 </div>
             </form>
@@ -41,11 +43,11 @@
                   <img id="nav-img" class="img-fluid" src="/Assets/images/defaultAvatar.jpeg" alt="Profile Image">
                   
                 <div>
-                <h4 class="text ml-2" id="profile-name"></h4>
+                <h5 class="text ml-2" id="profile-name"></h5>
                 
                 <div id="div-credit-amount" class="d-flex align-items-center">
                     <i class="fa-solid fa-coins" id="creditIcon" style="color: #ffff00;"></i>
-                    <h4 id="credit-count" class="ml-1 mr-2"></h4>
+                    <h5 id="credit-count" class="ml-1 mr-2"></h5>
                 </div>
                 
                 

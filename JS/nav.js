@@ -1,5 +1,7 @@
 
 
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const profileName = localStorage.getItem('name'); 
     const navName = document.getElementById('profile-name'); 
@@ -93,5 +95,21 @@ const hamburgermenu = document.getElementById('hamburger');
 document.addEventListener('DOMContentLoaded', function() {
     if (window.location.s !== '/index.html') {
         hamburgermenu.style.display = 'none';
+    }
+});
+
+
+const searchbtn = document.getElementById('btn-search');
+searchbtn.addEventListener('click', function() {
+    event.preventDefault();
+    const searchInput = document.getElementById('searchInput').value;
+    window.location.href = '../search/index.html' + '?search=' + encodeURIComponent(searchInput);
+});
+
+
+window.addEventListener('load', () => {
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+        searchInput.value = ''; 
     }
 });

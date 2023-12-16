@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/dist/css/styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="/JS/nav.js"  type="module" defer></script>
+    <script src="/JS/udpatemedia.js" type="module" defer> </script>
     <script src="https://kit.fontawesome.com/eed746e6fc.js" crossorigin="anonymous"></script>
     <script src="/JS/profile.js" type="module" defer></script>
     <title>Document</title>
@@ -23,14 +24,15 @@
     
           <div class="collapse navbar-collapse" id="navbarNav">
               <div class="d-flex justify-content-around align-items-center w-100">
-                <a href="../index.html"><h4 id="newlisting">Home</h4></a>
+                <a href="../index.html"><h5 id="newlisting">Home</h5></a>
+                <a href="/new-listing/index.html"><h5 id="newlisting">Create a new Listing</h5></a>
     
                   
                   <form class="form-inline my-2 my-lg-0">
                     <div class="input-group">
                         <input class="form-control" id="searchInput" type="search" placeholder="Search..." aria-label="Search" style="width: 300px;">
                         <div class="input-group-append">
-                            <button class="btn btn-success" type="submit">Search</button>
+                            <button class="btn btn-success" type="submit" id="btn-search">Search</button>
                         </div>
                     </div>
                 </form>
@@ -41,7 +43,7 @@
                       <img id="nav-img" class="img-fluid" src="/Assets/images/defaultAvatar.jpeg" alt="Profile Image">
                       
                     <div>
-                    <h4 class="text ml-2" id="profile-name">Profile Name</h4>
+                    <h4 class="text ml-2" id="profile-name"></h4>
                     
                     <div id="div-credit-amount" class="d-flex align-items-center">
                         <i class="fa-solid fa-coins" id="creditIcon" style="color: #ffff00;"></i>
@@ -73,34 +75,64 @@
       <div class="container">
         <div class="row">
           <div class="col-12" id="profile-container">
-            <div id="profile-avatar">
-                <div id="avatar-img">
+            <div class="profile-image-container">
+                <div id="profile-avatar">
+                    <div id="avatar-img">
+
+                    </div>
+                    <div id="avatar-btns">
+                        <button type="button" id="btn-edit-avatar" class="btn btn-primary" data-toggle="modal" data-target="#avatar-input-modal">Update Avatar</button>
+
+                        <div class="modal" tabindex="-1" role="dialog" id="avatar-input-modal">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title">Upload Avatar</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div>
+                                    <div class="modal-body">
+                                    <input type="url" placeholder="link to avatar:" id="input-media">
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="submit"  class="btn btn-primary" id="upload-btn">Upload</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
 
                 </div>
-                <div id="avatar-btns">
-                  <button id="btn-edit-avatar" class="btn btn-primary">Update Avatar</button>
-                </div>
-
             </div>
             <div id="profile-info">
 
             </div>
-            <div id="profile-listings">
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                  <li class="nav-item">
-                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Bids</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">listings</a>
-                  </li>
-                </ul>
-                <div class="tab-content" id="myTabContent">
-                  <div class="tab-pane fade show active" id="Bids" role="tabpanel" aria-labelledby="home-tab">...</div>
-                  <div class="tab-pane fade" id="listings" role="tabpanel" aria-labelledby="profile-tab">...</div>
-                </div>
-            </div>
+            
           </div>
+
+          
+
+          <div id="profile-listings" class="d-flex justify-content-center w-100" >
+            <ul class="nav nav-tabs d-flex justify-content-center" id="myTab" role="tablist" >
+              <li class="nav-item">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Bids</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">listings</a>
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="Bids" role="tabpanel" aria-labelledby="home-tab"></div>
+              <div class="tab-pane fade" id="listings" role="tabpanel" aria-labelledby="profile-tab"></div>
+            </div>
+        </div>
       </div>
+
     </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

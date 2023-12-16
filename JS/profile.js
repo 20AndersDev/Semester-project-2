@@ -46,34 +46,32 @@ async function getBids() {
 
 getBids();
 
-const profileContainer = document.getElementById('profile-container');
+const profileContainer = document.getElementById('profile-info');
 const avatarElement = document.getElementById('avatar-img');
 
 function displayProfile(profile) {
     const profileName = profile.name;
     const avatar = profile.avatar;
-    const listing = profile._count.listings;
-    const credits = profile.credits; 
+ 
 
     // Create new elements for each piece of profile data
-    const nameElement = document.createElement('p');
+    const nameElement = document.createElement('h3');
+    nameElement.classList.add('profile-name');
+
     const avatarimg = document.createElement('img');
-    const listingElement = document.createElement('p');
-    const creditsElement = document.createElement('p');
+    avatarimg.classList.add('profile-avatar');
 
     // Set the text content of the elements to the profile data
-    nameElement.textContent = `Name: ${profileName}`;
+    nameElement.textContent = ` ${profileName}`;
     avatarimg.src = avatar; // assuming avatar is a URL
-    listingElement.textContent = `Listings: ${listing}`;
-    creditsElement.textContent = `Credits: ${credits}`;
+
 
     
 
     // Append the elements to the profileContainer
     avatarElement.appendChild(avatarimg);
     profileContainer.appendChild(nameElement);
-    profileContainer.appendChild(listingElement);
-    profileContainer.appendChild(creditsElement);
+
 }
 
 getProfile().then(profile => {
@@ -81,5 +79,7 @@ getProfile().then(profile => {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    this.title = profileName;
+    this.title = profileName +" | Profile";
 });
+
+

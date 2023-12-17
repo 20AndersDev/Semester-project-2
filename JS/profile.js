@@ -62,6 +62,7 @@ function displayProfile(profile) {
         if (listing.media.length > 0) {
             image.src = listing.media[0];
             image.classList.add('listing-media');
+            image.alt = 'Listing image';
             media.appendChild(image);
         
             if (listing.media.length > 1) {
@@ -94,6 +95,7 @@ function displayProfile(profile) {
 
         const userAvatar = document.createElement('img');
         userAvatar.classList.add('user-avatar');
+        userAvatar.alt = 'profile picture';
         userAvatar.src = localStorage.getItem('avatar');
         sellerInfo.appendChild(userAvatar); 
 

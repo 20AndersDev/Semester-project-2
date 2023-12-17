@@ -23,7 +23,7 @@ newListingForm.addEventListener('submit', async (event) => {
             body: JSON.stringify({
                 title: titleInput.value,
                 description: descriptionInput.value,
-                media: mediaInput.value,
+                media: [mediaInput].value, 
                 endsAt: endsAtISO,
             }),
             headers: {
@@ -31,30 +31,33 @@ newListingForm.addEventListener('submit', async (event) => {
                 'Authorization': `Bearer ${accessToken}`
             }
         });
-        
+
         const listing = await response.json();
 
-        if( response.ok ) {
-        const success = document.getElementById('success-message')
-        const successMessage = document.createElement('p');
-        successMessage.textContent = 'Listing created successfully';
-        successMessage.style.color = 'green';
-        success.appendChild(successMessage);
-        setTimeout(function(){ window.location.href = "../index.html"; }, 2000);
+        if (response.ok) {
+            const success = document.getElementById('success-message');
+            const successMessage = document.createElement('p');
+            successMessage.textContent = 'Listing created successfully';
+            successMessage.style.color = 'green';
+            success.appendChild(successMessage);
+            setTimeout(function () {
+                window.location.href = "../index.html";
+            }, 2000);
         } else {
             const ErrorMessage = document.createElement('p');
-            ErrorMessage.textContent = 'Listing not created make sure URL is correct and Date is in the future';
+            ErrorMessage.textContent = 'Listing not created. Make sure the URL is correct and the Date is in the future';
             ErrorMessage.style.color = 'red';
             newListingForm.appendChild(ErrorMessage);
         }
 
-        // Clear the form inputs
+        console.log(listing);
+
         titleInput.value = '';
         descriptionInput.value = '';
         mediaInput.value = '';
         endsAtInput.value = '';
-        
+
     } catch (error) {
-        return error;
+        console.error('Form submission error:', error.message);
     }
 });

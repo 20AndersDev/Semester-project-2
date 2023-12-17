@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    const newListingElement = document.getElementById('div-newlisting');
+    const newListingElement = document.getElementById('newlisting');
     
     if (localStorage.getItem('token') !== null) {
         newListingElement.style.display = 'block';

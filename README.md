@@ -2,6 +2,7 @@
 
 ## Project Description
 This is my submission for Semester Project 2. We were tasked with creating an auction site where users can place bids on listings using credits. 
+Any feedback is appreciated. This is an school project so contributions is not accepted.
 
 ## Workflow Tech Stack
 Here is an overview of the different tools that were used to complete this project:
@@ -50,4 +51,3 @@ A user that is not logged in:
 - Can search through the listings.
 
 
-Any feedback is appreciated. This is an school project so contributions is not accepted.

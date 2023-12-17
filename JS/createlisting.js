@@ -11,7 +11,6 @@ newListingForm.addEventListener('submit', async (event) => {
     event.preventDefault();
 
     try {
-        // Validate the endsAt input as a date
         const endsAtDate = new Date(endsAtInput.value);
         if (isNaN(endsAtDate)) {
             throw new Error('Invalid date format for endsAt');
@@ -49,8 +48,6 @@ newListingForm.addEventListener('submit', async (event) => {
             newListingForm.appendChild(ErrorMessage);
         }
 
-        console.log(listing);
-
         // Clear the form inputs
         titleInput.value = '';
         descriptionInput.value = '';
@@ -58,6 +55,6 @@ newListingForm.addEventListener('submit', async (event) => {
         endsAtInput.value = '';
         
     } catch (error) {
-        console.error('Form submission error:', error.message);
+        return error;
     }
 });

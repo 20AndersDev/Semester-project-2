@@ -1,7 +1,6 @@
 
 import * as url from '/JS/api.js';
 
-// Biddibg on a listing
 const queryParams = new URLSearchParams(window.location.search);
 const id = queryParams.get('id');
 const bidURL = url.placeBid;
@@ -13,23 +12,19 @@ const placeBid = async (amount) => {
 
 
     try {
-        // Use the 'amount' parameter instead of a hardcoded value
         const response = await fetch(newBidUrl, {
             method: 'POST',
             body: JSON.stringify({
-                amount: amount, // Use the provided bid amount
+                amount: amount, 
             }),
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${accessToken}`
             }
         });
-        console.log(newBidUrl);
-        const bid = await response.json();
-        console.log(bid);
+
     } catch (error) {
-        console.error(error);
-        console.error(error.message);
+       return error;
     }
 };
 
@@ -42,9 +37,8 @@ const getSinglePost = async () => {
         const response = await fetch(singlePostURL.replace('<id>', id));
         const post = await response.json();
         displaySingleListing(post);
-        console.log(post);
     } catch (error) {
-        console.log(error);
+        return
     }
 };
 
@@ -155,7 +149,6 @@ if(accessToken == null) {
         endDate.style.display = 'none';
 
 
-        // Hide the bid input field
         bidInput.style.display = 'none';
     } else {
         bidButton.addEventListener('click', async () => {
@@ -163,18 +156,16 @@ if(accessToken == null) {
         
             if (!isNaN(bidAmount)) {
                 if (bidAmount > parseFloat(localStorage.getItem('credits'))) {
-                    // Display an error message
                     const errorContainer = document.getElementById('div-error-container');
-                    errorContainer.innerHTML = ''; // Clear any previous error messages
+                    errorContainer.innerHTML = ''; 
         
                     const errorMessage = document.createElement('p');
                     errorMessage.classList.add('error-message');
                     errorMessage.textContent = 'You do not have enough credits for this bid.';
                     errorContainer.appendChild(errorMessage);
                 } else if ( bidAmount <= highestBidAmount) {
-                    // Display an error message
                     const errorContainer = document.getElementById('div-error-container');
-                    errorContainer.innerHTML = ''; // Clear any previous error messages
+                    errorContainer.innerHTML = ''; 
         
                     const errorMessage = document.createElement('p');
                     errorMessage.classList.add('error-message');
@@ -182,15 +173,13 @@ if(accessToken == null) {
                     errorContainer.appendChild(errorMessage);
                 }
                 else {
-                    // Place the bid and update credits
                     await placeBid(bidAmount); 
                     localStorage.setItem('credits', localStorage.getItem('credits') - bidAmount);
                     window.location.reload();
                 }
             } else {
-                // Display an error for invalid bid amount
                 const errorContainer = document.getElementById('div-error-container');
-                errorContainer.innerHTML = ''; // Clear any previous error messages
+                errorContainer.innerHTML = ''; 
         
                 const errorMessage = document.createElement('p');
                 errorMessage.classList.add('error-message');
@@ -205,7 +194,6 @@ if(accessToken == null) {
 
     
     
-// Listing media and buttons
 const mediaContainer = document.getElementById('media-container');
 const images = listing.media;
 let currentImageIndex = 0;
@@ -235,16 +223,14 @@ if (images.length > 0) {
     divBtn.appendChild(nextImageButton);
     mediaContainer.appendChild(divBtn);
 } else {
-    // If there are no images, display a "No image found" message with an icon
     const noImageMessage = document.createElement('div');
     noImageMessage.classList.add('no-image-message');
 
-    // Add Font Awesome icon here
     const icon = document.createElement('i');
-    icon.classList.add('fa-solid', 'fa-heart-crack', 'fa-5x'); // You can change 'fa-5x' to adjust the icon size
+    icon.classList.add('fa-solid', 'fa-heart-crack', 'fa-5x'); 
     noImageMessage.appendChild(icon);
 
-    // Add the "No image found" text
+   
     const messageText = document.createElement('p');
     messageText.textContent = 'No image found';
     noImageMessage.appendChild(messageText);
@@ -253,9 +239,6 @@ if (images.length > 0) {
 }
    
 
-
-
-// Lsiting bids displayed below the listing
     const bidInfo = document.getElementById('bidders');
     const bids = listing.bids;
 
@@ -266,21 +249,20 @@ if (images.length > 0) {
         const bidUser = document.createElement('p');
         bidUser.classList.add('bid-user', 'p-4');
     
-        // Create elements for the name and amount separately for styling
+       
         const userName = document.createElement('span');
         userName.textContent = bid.bidderName;
-        userName.style.fontWeight = 'bold'; // Style the name to be bold
+        userName.style.fontWeight = 'bold'; 
     
-        const bidText = document.createTextNode(' bidded '); // Text node for "bidded" (default color)
+        const bidText = document.createTextNode(' bidded '); 
     
         const bidAmount = document.createElement('span');
         bidAmount.textContent = bid.amount + '$';
-        bidAmount.style.color = 'green'; // Style the bid amount to be green
+        bidAmount.style.color = 'green'; 
     
         const bidDate = document.createElement('span');
         bidDate.textContent = ' ' + new Date(bid.created).toLocaleString();
     
-        // Append name, "bidded" text, amount, and date spans to the paragraph
         bidUser.appendChild(userName);
         bidUser.appendChild(bidText);
         bidUser.appendChild(bidAmount);
@@ -319,11 +301,10 @@ async function deleteListing() {
             },
         });
         const listing = await response.json();
-        console.log(listing);
-        // Redirect to the profile page after successful deletion
         window.location.href = "/profile/index.html";
+        return listing;
     } catch (error) {
-        console.error(error);
+        return error;
     }
 }
 

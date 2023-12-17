@@ -3,7 +3,6 @@ import * as url from "./api.js";
 
 const mediaUrl = url.updateAvatar;
 const updateMediaUrl = mediaUrl.replace('<name>', localStorage.getItem('name'));
-console.log(updateMediaUrl);
 const accessToken = localStorage.getItem("token");
 
 
@@ -18,10 +17,9 @@ async function updateMediaAPI(url, mediaElement) {
             body: JSON.stringify({ avatar: mediaElement })
         });
         const response = await media.json();
-        console.log(response);
         return response;
     } catch (error) {
-        console.log(error);
+        return error;
     }
 }
 
@@ -33,7 +31,6 @@ async function updateMedia() {
         const mediaElement = document.getElementById('input-media').value;
         const response = await updateMediaAPI(updateMediaUrl, mediaElement);
         localStorage.setItem('avatar', mediaElement);
-        console.log(response);
 
         setTimeout(function() {
             window.location.href = "../profile/index.html";

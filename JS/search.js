@@ -7,18 +7,16 @@ async function getAuctions() {
         const response = await fetch(apiUrlAllListings);
         let auctions = await response.json();
 
-        // Sort auctions by creation date in descending order
+        
         auctions.sort((a, b) => {
             const dateA = new Date(a.createdAt).getTime();
             const dateB = new Date(b.createdAt).getTime();
             return dateB - dateA;
         });
     
-        console.log(auctions);
-        return auctions; // Return the auctions array
+        return auctions; 
     } catch (error) {
-        console.log(error);
-        return [];
+        return error;
     }
 }
 
@@ -31,8 +29,6 @@ document.addEventListener('DOMContentLoaded', async function() {
         const filteredResults = await searchAuctions(auctions, query); 
 
         const searchMessage = document.getElementById('search-message');
-
-        // Check if there are any search results
         if (filteredResults.length > 0) {
             searchMessage.textContent = `Showing ${filteredResults.length} results for "${query}"`;
         } else {

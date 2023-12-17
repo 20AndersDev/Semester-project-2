@@ -10,11 +10,9 @@ async function loginUser(url, data) {
             body: JSON.stringify(data),
         };
         const response = await fetch(url, loginUserData);
-        console.log(response);
 
         if (response.ok) {
             const responseData = await response.json();
-            console.log("Login successful:", responseData);
             localStorage.setItem("token", responseData.accessToken);
             localStorage.setItem("credits", responseData.credits);
             localStorage.setItem("name", responseData.name);
@@ -23,16 +21,15 @@ async function loginUser(url, data) {
             window.location.href = "../index.html";
 
         } else if (response.ok === false) {
-            // Login failed, display error message
+
             const errorData = await response.json();
-            console.log("Login failed:", errorData);
             const errorMessage = document.createElement("p");
             errorMessage.classList.add("error-message","text-center");
             errorMessage.textContent = "Login failed: please check your email and password.";
             document.getElementById("login-error").appendChild(errorMessage);
         }
     } catch (error) {
-        console.log("Error:", error);
+        return error;
     }
 
 }

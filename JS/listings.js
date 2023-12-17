@@ -8,7 +8,6 @@ async function getAuctions() {
         const response = await fetch(apiUrlAllListings);
         let auctions = await response.json();
 
-        // Sort auctions by creation date in descending order
         auctions.sort((a, b) => {
             const dateA = new Date(a.createdAt).getTime();
             const dateB = new Date(b.createdAt).getTime();
@@ -16,13 +15,10 @@ async function getAuctions() {
         });
 
         displayAuctions(auctions);
-        console.log(auctions);
     } catch (error) {
-        console.log(error);
+        return error;
     }
 }
-
-
 
 
 function displayAuctions(auctions) {
@@ -35,7 +31,6 @@ function displayAuctions(auctions) {
         media.classList.add('listing-media');
 
         if (auction.media.length > 0) {
-            // If there are images available, create and set the image source
             const image = document.createElement('img');
             image.src = auction.media[0]; 
             image.classList.add('listing-media');
@@ -48,7 +43,7 @@ function displayAuctions(auctions) {
                 media.appendChild(noImage);
             }
         } else {
-            // If there are no images, display a "No image found" message
+     
 
             const noImageMessage = document.createElement('div');
             noImageMessage.classList.add('d-flex', 'align-items-center', 'justify-content-center','flex-column');

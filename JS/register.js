@@ -10,10 +10,9 @@ async function registerUser(url, data) {
             body: JSON.stringify(data),
         };
         const response = await fetch(url, registerUserData);
-        console.log("Response:", response);
         window.location.href = "/login/index.html";
     } catch (error) {
-        console.log("Error:", error);
+        return error;
     }
 }
 
@@ -27,13 +26,11 @@ registerForm.addEventListener("submit", async (event) => {
     const password = document.getElementById("reg-password").value;
     const avatar = document.getElementById("reg-avatar").value;
 
-    // Reset error messages
     const errorMessages = document.querySelectorAll(".error-message");
     errorMessages.forEach((errorMessage) => {
         errorMessage.textContent = "";
     });
 
-    // Validate name
     if (name.trim() === "") {
         document.getElementById("register-error-name").textContent = "Name is required.";
         return;
@@ -43,7 +40,6 @@ registerForm.addEventListener("submit", async (event) => {
         return;
     }
 
-    // Validate email
     if (email.trim() === "") {
         document.getElementById("register-error-email").textContent = "Email is required.";
         return;
@@ -53,7 +49,7 @@ registerForm.addEventListener("submit", async (event) => {
         return;
     }
 
-    // Validate password
+
     if (password.trim() === "") {
         document.getElementById("register-error-password").textContent = "Password is required.";
         return;
@@ -63,7 +59,7 @@ registerForm.addEventListener("submit", async (event) => {
 
     }
 
-    // If all validations pass, proceed to register the user
+
     const userData = {
         name,
         email,

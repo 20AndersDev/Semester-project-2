@@ -1,7 +1,4 @@
 
-
-
-
 document.addEventListener('DOMContentLoaded', function() {
     const profileName = localStorage.getItem('name'); 
     const navName = document.getElementById('profile-name'); 
@@ -10,11 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         
         const a = document.createElement('a');
-        // Set the href attribute to the URL you want to link to
-        a.href = '/profile/index.html'; // replace with your URL
-        // Set the text content to the profile name
+        a.href = '/profile/index.html'; 
         a.textContent = profileName;
-        // Append the anchor element to the navName element
         navName.appendChild(a);
     } else {
         navName.textContent = 'Log in to start bidding';
@@ -61,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    const divbtn = document.getElementById('div-btns'); // Assuming 'div-btns' is the ID of the container div
+    const divbtn = document.getElementById('div-btns'); 
 
     const logoutButton = document.createElement('button');
     logoutButton.textContent = 'Log out';

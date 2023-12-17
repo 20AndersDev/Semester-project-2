@@ -17,10 +17,9 @@ async function getProfile() {
                 }
         });
         const response = await profile.json();
-        console.log(response);
         return response;
     } catch (error) {
-        console.log(error);
+        return error;
     }
 }
 
@@ -34,21 +33,18 @@ function displayProfile(profile) {
     const avatar = profile.avatar;
  
 
-    // Create new elements for each piece of profile data
     const nameElement = document.createElement('h3');
     nameElement.classList.add('profile-name');
 
     const avatarimg = document.createElement('img');
     avatarimg.classList.add('profile-avatar');
 
-    // Set the text content of the elements to the profile data
     nameElement.textContent = ` ${profileName}`;
-    avatarimg.src = avatar; // assuming avatar is a URL
+    avatarimg.src = avatar; 
 
 
     
 
-    // Append the elements to the profileContainer
     avatarElement.appendChild(avatarimg);
     profileContainer.appendChild(nameElement);
 
@@ -64,7 +60,6 @@ function displayProfile(profile) {
         const image = document.createElement('img');
         
         if (listing.media.length > 0) {
-            // If there are images available, set the image source
             image.src = listing.media[0];
             image.classList.add('listing-media');
             media.appendChild(image);
@@ -76,7 +71,6 @@ function displayProfile(profile) {
                 media.appendChild(noImage);
             }
         } else {
-            // If there are no images, display a "No image found" message
             const noImageMessage = document.createElement('div');
             noImageMessage.classList.add('d-flex', 'align-items-center', 'justify-content-center','flex-column');
             const noimageicon = document.createElement('i');

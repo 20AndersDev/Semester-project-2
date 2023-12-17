@@ -19,47 +19,42 @@
   <header>
     <nav class="navbar navbar-expand-xl w-100">
       <a class="navbar-brand" href="#">
-        <img class="nav-logo" src="/Assets/images/auctionzonefiksa-removebg-preview.png" alt="Auction Zone Logo">
+          <img class="nav-logo" src="/Assets/images/auctionzonefiksa-removebg-preview.png" alt="Auction Zone Logo">
       </a>
-          <div>
-            <a href="../index.html" ><h5 id="newlisting" >Home</h5></a>
-        </div>
-        <div id="div-newlisting">
-            <a href="/new-listing/index.html"><h5 id="newlisting">Create a new Listing</h5></a>
-        </div>
 
-        <button  class="navbar-toggler ml-2 hamburger" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" >
-            <i class="fa fa-bars"></i>
-        </button>
+      <button class="navbar-toggler ml-2 hamburger" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fa fa-bars"></i>
+      </button>
 
-        <div class="collapse navbar-collapse  justify-content-around " id="navbarNav">
-            <a href="../index.html"><h5 id="newlisting">Home</h5></a>
+      <div class="collapse navbar-collapse justify-content-around text-decoration-none " id="navbarNav">
+          <a href="../index.html"><h5 id="newlisting">Home</h5></a>
+          <a href="/new-listing/index.html"><h5 id="newlisting">Create a new Listing</h5></a>
 
-            <form class="form-inline my-2 my-lg-0">
-                <div class="input-group">
-                    <input class="form-control" id="searchInput" type="search" placeholder="Search..." aria-label="Search" style="width: 300px;">
-                    <div class="input-group-append">
-                        <button type="submit" class="btn btn-success" id="btn-search">Search</button>
-                    </div>
-                </div>
-            </form>
+          <form class="form-inline my-2 my-lg-0">
+              <div class="input-group">
+                  <input class="form-control" id="searchInput" type="search" placeholder="Search..." aria-label="Search" style="width: 300px;">
+                  <div class="input-group-append">
+                      <button type="submit" class="btn btn-success" id="btn-search">Search</button>
+                  </div>
+              </div>
+          </form>
 
-            <div class="d-flex align-items-center mr-3">
-                <img id="nav-img" class="img-fluid" src="/Assets/images/defaultAvatar.jpeg" alt="Profile Image">
-                <div>
-                    <h5 class="text ml-2" id="profile-name"></h5>
-                    <div id="div-credit-amount" class="d-flex align-items-center">
-                        <i class="fa-solid fa-coins" id="creditIcon" style="color: #ffff00;"></i>
-                        <h5 id="credit-count" class="ml-1 mr-2"></h5>
-                    </div>
-                </div>
-            </div>
+          <div class="d-flex align-items-center mr-3">
+              <img id="nav-img" class="img-fluid" src="/Assets/images/defaultAvatar.jpeg" alt="Profile Image">
+              <div>
+                  <h5 class="text ml-2" id="profile-name" aria-label="User Profile Name"></h5>
+                  <div id="div-credit-amount" class="d-flex align-items-center">
+                      <i class="fa-solid fa-coins" id="creditIcon" style="color: #ffff00;"></i>
+                      <h5 id="credit-count" class="ml-1 mr-2" aria-label="User Credits Count"></h5>
+                  </div>
+              </div>
+          </div>
 
-            <div id="div-btns">
-                <!-- Other buttons or elements here -->
-            </div>
-        </div>
-    </nav>
+          <div id="div-btns">
+
+          </div>
+      </div>
+  </nav>
 </header>
   <main>
   <div class="container">

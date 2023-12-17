@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/dist/css/styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="/JS/search.js" type="module" defer></script>
+    <script src="/JS/udpatemedia.js" type="module" defer></script>
     <script src="/JS/nav.js"  type="module" defer></script>
     <script src="https://kit.fontawesome.com/eed746e6fc.js" crossorigin="anonymous"></script>
     <script src="/JS/profile.js" type="module" defer></script>
@@ -13,7 +14,7 @@
 </head>
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg w-100">
+    <nav class="navbar navbar-expand-xl w-100">
         <a class="navbar-brand" href="#">
             <img class="nav-logo" src="/Assets/images/auctionzonefiksa.jpeg" alt="Logo">
         </a>
@@ -22,7 +23,7 @@
             <i class="fa fa-bars"></i>
         </button>
 
-        <div class="collapse navbar-collapse flex-column flex-lg-row" id="navbarNav">
+        <div class="collapse navbar-collapse  justify-content-around " id="navbarNav">
             <a href="../index.html"><h5 id="newlisting">Home</h5></a>
             <a href="/new-listing/index.html"><h5 id="newlisting">Create a new Listing</h5></a>
 
@@ -54,39 +55,65 @@
 </header>
 
     <main>
-      <div class="container">
+      <div class="container d-flex justify-content-center w-100">
         <div class="row">
-          <div class="col-12" id="profile-container">
+          <div class="col-12" id="profile-container" >
             <div id="profile-avatar">
-                <div id="avatar-img">
+                <div id="avatar-img" class="d-flex justify-content-center">
 
                 </div>
                 <div id="avatar-btns">
-                  <button id="btn-edit-avatar" class="btn btn-primary">Update Avatar</button>
-                </div>
+                  <button type="button" id="btn-edit-avatar" class="btn btn-primary" data-toggle="modal" data-target="#avatar-input-modal">Update Avatar</button>
+
+                  <div class="modal" tabindex="-1" role="dialog" id="avatar-input-modal">
+                      <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                              <h5 class="modal-title">Upload Avatar</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                              </button>
+                              </div>
+                              <div class="modal-body">
+                              <input type="url" placeholder="link to avatar:" id="input-media">
+                              </div>
+                              <div class="modal-footer">
+                              <button type="submit"  class="btn btn-primary" id="upload-btn">Upload</button>
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
 
             </div>
             <div id="profile-info">
 
             </div>
-            <div id="profile-listings">
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                  <li class="nav-item">
-                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Bids</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">listings</a>
-                  </li>
-                </ul>
-                <div class="tab-content" id="myTabContent">
-                  <div class="tab-pane fade show active" id="Bids" role="tabpanel" aria-labelledby="home-tab">...</div>
-                  <div class="tab-pane fade" id="listings" role="tabpanel" aria-labelledby="profile-tab">
-                    
-                  </div>
-                </div>
+            
             </div>
+            <div id="profile-listings" class="d-flex w-100 justify-content-center">
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Bids</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">listings</a>
+                </li>
+              </ul>
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="Bids" role="tabpanel" aria-labelledby="home-tab"></div>
+                <div class="tab-pane fade" id="listings" role="tabpanel" aria-labelledby="profile-tab">
+                  
+                </div>
+              </div>
           </div>
+          
+          
       </div>
+
     </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

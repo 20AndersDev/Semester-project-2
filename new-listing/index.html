@@ -12,63 +12,44 @@
 </head>
 
 <body>
-  <header >
-    <nav class="navbar navbar-expand-lg w-100">
-      <a class="navbar-brand" href="#">
-          <img class="nav-logo" src="/Assets/images/auctionzonefiksa.jpeg" alt="Logo">
-      </a>
+  <header>
+    <nav class="navbar navbar-expand-xl w-100">
+        <a class="navbar-brand" href="#">
+            <img class="nav-logo" src="/Assets/images/auctionzonefiksa.jpeg" alt="Logo">
+        </a>
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
+        <button  class="navbar-toggler ml-2 hamburger" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" >
+            <i class="fa fa-bars"></i>
+        </button>
 
-      <div class="collapse navbar-collapse" id="navbarNav">
-          <div class="d-flex justify-content-around align-items-center w-100">
+        <div class="collapse navbar-collapse  justify-content-around " id="navbarNav">
             <a href="../index.html"><h5 id="newlisting">Home</h5></a>
 
-              
-              <form class="form-inline my-2 my-lg-0">
+            <form class="form-inline my-2 my-lg-0">
                 <div class="input-group">
                     <input class="form-control" id="searchInput" type="search" placeholder="Search..." aria-label="Search" style="width: 300px;">
                     <div class="input-group-append">
-                        <button class="btn btn-success" type="submit">Search</button>
+                        <button type="submit" class="btn btn-success" id="btn-search">Search</button>
                     </div>
                 </div>
             </form>
-              
 
-              <div>
-                <div class="d-flex align-items-center mr-3">
-                  <img id="nav-img" class="img-fluid" src="/Assets/images/defaultAvatar.jpeg" alt="Profile Image">
-                  
+            <div class="d-flex align-items-center mr-3">
+                <img id="nav-img" class="img-fluid" src="/Assets/images/defaultAvatar.jpeg" alt="Profile Image">
                 <div>
-                <h4 class="text ml-2" id="profile-name">Profile Name</h4>
-                
-                <div id="div-credit-amount" class="d-flex align-items-center">
-                    <i class="fa-solid fa-coins" style="color: #ffff00;"></i>
-                    <h4 id="credit-count" class="ml-1 mr-2"></h4>
+                    <h5 class="text ml-2" id="profile-name"></h5>
+                    <div id="div-credit-amount" class="d-flex align-items-center">
+                        <i class="fa-solid fa-coins" id="creditIcon" style="color: #ffff00;"></i>
+                        <h5 id="credit-count" class="ml-1 mr-2"></h5>
+                    </div>
                 </div>
-                
-                
-              </div>
-              <div id="div-btns">
-  
-              </div>
-              
             </div>
-            
-          </div>
+
+            <div id="div-btns">
+                <!-- Other buttons or elements here -->
+            </div>
         </div>
-            
-              <button id="hamburger" class="navbar-toggler ml-2" type="button" data-toggle="collapse" data-target="#navbarNav"
-                  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa fa-bars"></i>
-              </button>
-        </div>
-      </div>
-  </nav>
-    
-    
+    </nav>
 </header>
   <main>
   <div class="container">

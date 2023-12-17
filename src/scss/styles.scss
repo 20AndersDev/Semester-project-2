@@ -6,13 +6,18 @@ $border-radius: 20px;
   color: white;
 }
 
-
+a, a:hover, a:focus, a:active {
+  text-decoration: none;
+  color: inherit;
+}
 
 header {
   background-color: #31C48D;
 
   nav{
-
+    color: white;
+    text-decoration: none;
+    
     .navbar-brand{
       display: flex;
 
@@ -26,7 +31,6 @@ header {
 
   }
 }
-
 
 // Header styling
 
@@ -241,25 +245,20 @@ header {
 
 // profil stling
 
+
 .container{
  
-  .profile-image-container{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-
+ 
     .profile-avatar{
-        width: 200px;
-        height: 200px;
-        object-fit: cover;
-        border-radius: 200px;
-        margin-top: 20px;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 200px;
+      margin-top: 20px;
     }
+    
 
-    #avatar-btns{
-      width: 100%;
-      display: flex;
-      justify-content: center;
+  
       
       #btn-edit-avatar{
         display: flex;
@@ -275,7 +274,6 @@ header {
       }
       
     }
-  }
 
   #profile-info{
     display: flex;
@@ -289,5 +287,4 @@ header {
       margin-top: 50px;
     }
   }
-}
 

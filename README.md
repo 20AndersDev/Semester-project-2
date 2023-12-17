@@ -48,3 +48,6 @@ When the user is logged in:
 A user that is not logged in:
 - Can see and open the listings but cannot place bids.
 - Can search through the listings.
+
+
+Any feedback is appreciated. This is an school project so contributions is not accepted.

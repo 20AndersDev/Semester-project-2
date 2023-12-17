@@ -34,15 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    const newListingElement = document.getElementById('div-newlisting');
-    
-    if (localStorage.getItem('token') !== null) {
-        newListingElement.style.display = 'block';
-    } else {
-        newListingElement.style.display = 'none';
-    }
-});
+
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -58,6 +50,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    const newListingElement = document.getElementById('div-newlisting');
+    
+    if (localStorage.getItem('token') !== null) {
+        newListingElement.style.display = 'block';
+    } else {
+        newListingElement.style.display = 'none';
+    }
+});
 
 document.addEventListener('DOMContentLoaded', function() {
     const divbtn = document.getElementById('div-btns'); // Assuming 'div-btns' is the ID of the container div

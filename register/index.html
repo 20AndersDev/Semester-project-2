@@ -3,16 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/dist/css/styles.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/eed746e6fc.js" crossorigin="anonymous"></script>
+    <script src="/JS/nav.js" type="module" defer></script>
     <script src="/JS/register.js" type="module" defer></script>
+    <title>Register | Auctionzone</title>
 </head>
 <body>
     <header>
-        <div class="div-login-register d-flex justify-content-center">
-            <img src="/Assets/images/auctionzonefiksa.jpeg" >
-        </div>
+        <nav class="navbar navbar-expand-xl w-100 ">
+            <a class="navbar-brand" href="#">
+                <img class="nav-logo" src="/Assets/images/auctionzonefiksa.jpeg" alt="Logo">
+            </a>
+    
+            <button  class="navbar-toggler ml-2 hamburger" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" >
+                <i class="fa fa-bars"></i>
+            </button>
+    
+            <div class="collapse navbar-collapse  justify-content-around text-decoration-none" id="navbarNav">
+                    <div class="d-flex justify-content-center text-decoration-none text-center align-items-center">
+                        <a href="/index.html"><h5>Browse listings</h5></a>
+                    </div>
+            </div>
+        </nav>
     </header>
     <main>
         <div class="container">
@@ -22,14 +37,17 @@
                     <div class="form-group">
                         <label for="reg-name">Name</label>
                         <input type="text" class="form-control" id="reg-name" placeholder="Name">
+                        <p id="register-error-name" class="error-message"></p>
                     </div>
                     <div class="form-group">
                         <label for="reg-email">Email address</label>
                         <input type="email" class="form-control" id="reg-email" placeholder="Enter your Noroff email" required>
+                        <p id="register-error-email" class="error-message"></p>
                     </div>
                     <div class="form-group">
                         <label for="reg-password">Password</label>
-                        <input type="password" class="form-control" id="reg-password" placeholder="Password">
+                        <input type="password" class="form-control" id="reg-password">
+                        <p id="register-error-password" class="error-message"></p>
                     </div>
                     <div class="form-group">
                         <label for="reg-avatar">Avatar URL</label>
@@ -39,10 +57,9 @@
                         <button id="register-button" type="submit" class="btn btn-success btn-block">Register</button>
                     </div>
                     <div class="text-center">
-                        <small>Already have an account? <a href="/login/">Log in here!</a></small>
+                         <a href="/login/">Already have an account? Log in here!</a>
                     </div>
                 </form>
-                <a href="/index.html"><h3>Browse listings</h3></a>
             </div>
         </div>
     </main>

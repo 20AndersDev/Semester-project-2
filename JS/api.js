@@ -14,3 +14,4 @@ export const createListing = baseApiUrl + "/auction/listings";
 export const singleUserUrl = baseApiUrl + "/auction/profiles/<name>?_listings=true";  
 export const profileBids = baseApiUrl + "/auction/profiles/<name>/bids/";
 export const updateAvatar = baseApiUrl + "/auction/profiles/<name>/media";
+export const deleteListing = baseApiUrl + "/auction/listings/<id>";

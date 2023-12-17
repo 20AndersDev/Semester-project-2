@@ -19,12 +19,17 @@ async function loginUser(url, data) {
             localStorage.setItem("credits", responseData.credits);
             localStorage.setItem("name", responseData.name);
             localStorage.setItem("avatar", responseData.avatar);
+            localStorage.setItem("defaultavatar", 'https://img.freepik.com/premium-vector/man-avatar-profile-round-icon_24640-14044.jpg');
             window.location.href = "../index.html";
 
-        }
-        else {
+        } else if (response.ok === false) {
+            // Login failed, display error message
             const errorData = await response.json();
             console.log("Login failed:", errorData);
+            const errorMessage = document.createElement("p");
+            errorMessage.classList.add("error-message","text-center");
+            errorMessage.textContent = "Login failed: please check your email and password.";
+            document.getElementById("login-error").appendChild(errorMessage);
         }
     } catch (error) {
         console.log("Error:", error);
@@ -45,5 +50,4 @@ loginForm.addEventListener("submit", async (event) => {
     };
 
     await loginUser(loginUrl, userData);
-
-});   
+});

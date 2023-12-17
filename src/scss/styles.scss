@@ -1,6 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Noticia+Text&family=Sigmar&display=swap');
+
+@font-face {
+  font-family: 'Montserrat', sans-serif;
+  src: url('https://fonts.googleapis.com/css2?family=Montserrat&family=Noticia+Text&family=Sigmar&display=swap');
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* You can also specify Helvetica Neue for specific elements like headers */
+h1, h2, h3,p {
+  font-family: 'Montserrat', sans-serif;
+}
+
+
 $primary-color: #31C48D;
 $secondary-color: #fff;
 $border-radius: 20px;
+
+.error-message{
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+#media-container {
+  margin-top: 20px;
+  justify-content: center;
+  text-align: center;
+}
+
 
 .hamburger{
   color: white;

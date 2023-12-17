@@ -27,10 +27,19 @@ document.addEventListener('DOMContentLoaded', async function() {
     const query = urlParams.get('search');
     
     if (query) {
-        const auctions = await getAuctions(); // Fetch all auctions
-        const filteredResults = await searchAuctions(auctions, query); // Filter results
-        console.log(filteredResults);
-        displayResults(filteredResults); // Display filtered results
+        const auctions = await getAuctions(); 
+        const filteredResults = await searchAuctions(auctions, query); 
+
+        const searchMessage = document.getElementById('search-message');
+
+        // Check if there are any search results
+        if (filteredResults.length > 0) {
+            searchMessage.textContent = `Showing ${filteredResults.length} results for "${query}"`;
+        } else {
+            searchMessage.textContent = `No results found for "${query}"`;
+        }
+
+        displayResults(filteredResults);
     }
 });
 
@@ -40,7 +49,7 @@ async function searchAuctions(auctions, query) {
         return auctions;
     }
 
-    // Filter auctions based on the query
+   
     return auctions.filter(auction => {
         const titleMatch = auction.title.toLowerCase().includes(query.toLowerCase());
         const userMatch = auction.seller.name.toLowerCase().includes(query.toLowerCase());
@@ -131,7 +140,6 @@ async function displayResults(results) {
             });
     });
 }
-
 
 
 

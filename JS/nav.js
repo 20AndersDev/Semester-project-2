@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+
 document.addEventListener('DOMContentLoaded', function() {
     const profileAvatar = localStorage.getItem('avatar');
     const navAvatar = document.getElementById('nav-img');
@@ -34,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    const newListingElement = document.getElementById('newlisting');
+    const newListingElement = document.getElementById('div-newlisting');
     
     if (localStorage.getItem('token') !== null) {
         newListingElement.style.display = 'block';

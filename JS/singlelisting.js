@@ -71,6 +71,13 @@ function displaySingleListing(listing) {
     userAvatar.src = listing.seller.avatar;
     sellerinfo.appendChild(userAvatar);
 
+    if (listing.seller.avatar === null) {
+        const defaultAvatar = localStorage.getItem('defaultavatar');
+        userAvatar.src = defaultAvatar;
+    } else {
+        userAvatar.src = listing.seller.avatar;
+    }
+
     listingInfo.appendChild(sellerinfo);
 
 
@@ -108,6 +115,22 @@ function displaySingleListing(listing) {
     bidButton.textContent = 'Place a bid';
     listingInfo.appendChild(bidButton);
 
+    const divdeletebtn = document.getElementById('DivdeleteBtn');
+    const deleteButton = document.getElementById('delete-button');
+    divdeletebtn.classList.add('d-flex', 'justify-content-center');
+
+    const bidInputamount = document.querySelector('.bid-input');
+
+    if(listing.seller.name === localStorage.getItem('name')) {
+        bidButton.style.display = 'none';
+        deleteButton.style.display = 'block';
+        bidInputamount.style.display = 'none';
+    
+    } else {   
+        bidButton.style.display = 'block';
+        deleteButton.style.display = 'none';
+        bidInputamount.style.display = 'block';
+    }
     
 
     
@@ -137,14 +160,45 @@ if(accessToken == null) {
     } else {
         bidButton.addEventListener('click', async () => {
             const bidAmount = parseFloat(bidInput.value); 
+        
             if (!isNaN(bidAmount)) {
-                await placeBid(bidAmount); 
-                localStorage.setItem('credits', localStorage.getItem('credits') - bidAmount);
-                window.location.reload();
+                if (bidAmount > parseFloat(localStorage.getItem('credits'))) {
+                    // Display an error message
+                    const errorContainer = document.getElementById('div-error-container');
+                    errorContainer.innerHTML = ''; // Clear any previous error messages
+        
+                    const errorMessage = document.createElement('p');
+                    errorMessage.classList.add('error-message');
+                    errorMessage.textContent = 'You do not have enough credits for this bid.';
+                    errorContainer.appendChild(errorMessage);
+                } else if ( bidAmount <= highestBidAmount) {
+                    // Display an error message
+                    const errorContainer = document.getElementById('div-error-container');
+                    errorContainer.innerHTML = ''; // Clear any previous error messages
+        
+                    const errorMessage = document.createElement('p');
+                    errorMessage.classList.add('error-message');
+                    errorMessage.textContent = 'Your bid must be higher than the current highest bid.';
+                    errorContainer.appendChild(errorMessage);
+                }
+                else {
+                    // Place the bid and update credits
+                    await placeBid(bidAmount); 
+                    localStorage.setItem('credits', localStorage.getItem('credits') - bidAmount);
+                    window.location.reload();
+                }
             } else {
-                console.error('Invalid bid amount');
+                // Display an error for invalid bid amount
+                const errorContainer = document.getElementById('div-error-container');
+                errorContainer.innerHTML = ''; // Clear any previous error messages
+        
+                const errorMessage = document.createElement('p');
+                errorMessage.classList.add('error-message');
+                errorMessage.textContent = 'Invalid bid amount.';
+                errorContainer.appendChild(errorMessage);
             }
         });
+        
     }
   
    
@@ -152,14 +206,13 @@ if(accessToken == null) {
     
     
 // Listing media and buttons
-    const mediaContainer = document.getElementById('media-container');
+const mediaContainer = document.getElementById('media-container');
+const images = listing.media;
+let currentImageIndex = 0;
 
+if (images.length > 0) {
     const imageContainer = document.createElement('div');
     imageContainer.classList.add('image-container');
-
-
-    const images = listing.media;
-    let currentImageIndex = 0;
 
     const postImage = document.createElement('img');
     postImage.classList.add('post-image');
@@ -167,24 +220,37 @@ if(accessToken == null) {
     imageContainer.appendChild(postImage);
     mediaContainer.appendChild(imageContainer);
 
-    
     const divBtn = document.createElement('div');
     divBtn.classList.add('div-btn');
 
     const nextImageButton = document.createElement('button');
     nextImageButton.classList.add('next-image-button');
     nextImageButton.textContent = 'Next Image';
-    
 
     nextImageButton.addEventListener('click', () => {
-        
         currentImageIndex = (currentImageIndex + 1) % images.length;
         postImage.src = images[currentImageIndex];
     });
 
     divBtn.appendChild(nextImageButton);
     mediaContainer.appendChild(divBtn);
+} else {
+    // If there are no images, display a "No image found" message with an icon
+    const noImageMessage = document.createElement('div');
+    noImageMessage.classList.add('no-image-message');
 
+    // Add Font Awesome icon here
+    const icon = document.createElement('i');
+    icon.classList.add('fa-solid', 'fa-heart-crack', 'fa-5x'); // You can change 'fa-5x' to adjust the icon size
+    noImageMessage.appendChild(icon);
+
+    // Add the "No image found" text
+    const messageText = document.createElement('p');
+    messageText.textContent = 'No image found';
+    noImageMessage.appendChild(messageText);
+
+    mediaContainer.appendChild(noImageMessage);
+}
    
 
 
@@ -237,3 +303,30 @@ if(accessToken == null) {
 
 getSinglePost();
 
+
+
+const listingid = queryParams.get('id');
+
+const deleteUrl = url.deleteListing.replace("<id>", listingid);
+
+async function deleteListing() {
+    try {
+        const response = await fetch(deleteUrl, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${accessToken}`,
+            },
+        });
+        const listing = await response.json();
+        console.log(listing);
+        // Redirect to the profile page after successful deletion
+        window.location.href = "/profile/index.html";
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+document.getElementById("delete-button").addEventListener("click", function () {
+    deleteListing();
+});

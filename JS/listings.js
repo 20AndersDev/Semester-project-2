@@ -33,10 +33,32 @@ function displayAuctions(auctions) {
 
         const media = document.createElement('div');
         media.classList.add('listing-media');
-        const image = document.createElement('img');
-        image.src = auction.media[0]; 
-        image.classList.add('listing-media');
-        media.appendChild(image);
+
+        if (auction.media.length > 0) {
+            // If there are images available, create and set the image source
+            const image = document.createElement('img');
+            image.src = auction.media[0]; 
+            image.classList.add('listing-media');
+            media.appendChild(image);
+
+            if (auction.media.length > 1) {
+                const noImage = document.createElement('div');
+                noImage.classList.add('no-image');
+                noImage.textContent = `+${auction.media.length - 1}`;
+                media.appendChild(noImage);
+            }
+        } else {
+            // If there are no images, display a "No image found" message
+
+            const noImageMessage = document.createElement('div');
+            noImageMessage.classList.add('d-flex', 'align-items-center', 'justify-content-center','flex-column');
+            const noimageicon = document.createElement('i');
+            noimageicon.classList.add('fa-solid', 'fa-heart-crack', 'fa-5x');
+            noImageMessage.classList.add('no-image');
+            noImageMessage.textContent = 'No image found';
+            noImageMessage.appendChild(noimageicon);
+            media.appendChild(noImageMessage);
+        }
 
         const postHeader = document.createElement('div');
         postHeader.classList.add('post-header','p-4');

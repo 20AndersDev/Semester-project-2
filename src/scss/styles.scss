@@ -1,25 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Noticia+Text&family=Sigmar&display=swap');
-
-@font-face {
-  font-family: 'Montserrat', sans-serif;
-  src: url('https://fonts.googleapis.com/css2?family=Montserrat&family=Noticia+Text&family=Sigmar&display=swap');
-}
-
-body {
-  font-family: 'Montserrat', sans-serif;
-}
-
-/* You can also specify Helvetica Neue for specific elements like headers */
-h1, h2, h3,p {
-  font-family: 'Montserrat', sans-serif;
-}
-
-
 $primary-color: #31C48D;
 $secondary-color: #fff;
 $border-radius: 20px;
 
-.error-message{
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Noticia+Text&family=Sigmar&display=swap');
+
+body, h1, h2, h3, p {
+  font-family: 'Montserrat', sans-serif;
+}
+
+a, a:hover, a:focus, a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+.error-message {
   color: red;
   font-size: 14px;
   margin-bottom: 10px;
@@ -31,24 +25,18 @@ $border-radius: 20px;
   text-align: center;
 }
 
-
-.hamburger{
+.hamburger {
   color: white;
-}
-
-a, a:hover, a:focus, a:active {
-  text-decoration: none;
-  color: inherit;
 }
 
 header {
   background-color: #185D45;
 
-  nav{
+  nav {
     color: white;
     text-decoration: none;
-    
-    .navbar-brand{
+
+    .navbar-brand {
       display: flex;
 
       .nav-logo {
@@ -58,11 +46,8 @@ header {
         margin-right: 10px;
       }
     }
-
   }
 }
-
-// Header styling
 
 #nav-img {
   width: 40px;
@@ -72,14 +57,6 @@ header {
   border-radius: 40px;
 }
 
- 
-
-
-
-
-
-
-// Listings page
 .post-container {
   display: flex;
   flex-direction: column;
@@ -104,8 +81,8 @@ header {
   height: 300px;
   object-fit: cover;
 }
-.post-header,
-.post-content {
+
+.post-header, .post-content {
   padding: 20px;
 }
 
@@ -135,13 +112,12 @@ header {
   object-fit: cover;
 }
 
-.highestBid
- {
+.highestBid {
   font-size: 16px;
   margin-bottom: 10px;
 }
 
-.endDate{
+.endDate {
   font-size: 16px;
   margin-bottom: 10px;
   color: white;
@@ -154,14 +130,11 @@ header {
 
 
 
-// Single listing styling
-
 
 #listing-info {
   border-radius: 5px;
   padding: 20px;
   margin-bottom: 20px;
-
 }
 
 .post-title {
@@ -206,10 +179,10 @@ header {
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
-}
 
-.bid-button:hover {
-  background-color: #218838;
+  &:hover {
+    background-color: #218838;
+  }
 }
 
 #media-container {
@@ -245,10 +218,10 @@ header {
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
-}
 
-.next-image-button:hover {
-  background-color: #0069d9;
+  &:hover {
+    background-color: #0069d9;
+  }
 }
 
 #bidders {
@@ -273,48 +246,189 @@ header {
   color: #333;
 }
 
-// profil stling
+// Profile styling
+.container {
+  .profile-avatar {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 200px;
+    margin-top: 20px;
+  }
 
+  #btn-edit-avatar {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
 
-.container{
- 
- 
-    .profile-avatar{
-      width: 200px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 200px;
-      margin-top: 20px;
-    }
-    
-
-  
-      
-      #btn-edit-avatar{
-        display: flex;
-        justify-content: center;
-        margin-top: 10px;
-        width: 100%;
-        padding: 10px;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-      }
-      
-    }
-
-  #profile-info{
+  #profile-info {
     display: flex;
     justify-content: center;
     width: 100%;
 
-    .profile-name{
+    .profile-name {
       font-size: 24px;
       font-weight: bold;
       margin-bottom: 10px;
       margin-top: 50px;
     }
   }
+}#listing-info {
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
 
+.post-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.seller-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.singel-listing-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.single-description {
+  margin-bottom: 20px;
+}
+
+.highestBid, .endDate {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.bid-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.bid-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #218838;
+  }
+}
+
+#media-container {
+  margin-top: 20px;
+}
+
+.image-container {
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  position: relative;
+}
+
+.post-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.div-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.next-image-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #0069d9;
+  }
+}
+
+#bidders {
+  margin-top: 40px;
+}
+
+.bid-div {
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.bid-user {
+  margin: 0;
+  font-weight: 600;
+  color: #333;
+}
+
+// Profile styling
+.container {
+  .profile-avatar {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 200px;
+    margin-top: 20px;
+  }
+
+  #btn-edit-avatar {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  #profile-info {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    .profile-name {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      margin-top: 50px;
+    }
+  }
+}

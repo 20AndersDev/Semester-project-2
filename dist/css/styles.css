@@ -1,15 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Noticia+Text&family=Sigmar&display=swap");
-@font-face {
-  font-family: "Montserrat", sans-serif;
-  src: url("https://fonts.googleapis.com/css2?family=Montserrat&family=Noticia+Text&family=Sigmar&display=swap");
-}
-body {
+body, h1, h2, h3, p {
   font-family: "Montserrat", sans-serif;
 }
 
-/* You can also specify Helvetica Neue for specific elements like headers */
-h1, h2, h3, p {
-  font-family: "Montserrat", sans-serif;
+a, a:hover, a:focus, a:active {
+  text-decoration: none;
+  color: inherit;
 }
 
 .error-message {
@@ -26,11 +22,6 @@ h1, h2, h3, p {
 
 .hamburger {
   color: white;
-}
-
-a, a:hover, a:focus, a:active {
-  text-decoration: none;
-  color: inherit;
 }
 
 header {
@@ -82,8 +73,7 @@ header nav .navbar-brand .nav-logo {
   object-fit: cover;
 }
 
-.post-header,
-.post-content {
+.post-header, .post-content {
   padding: 20px;
 }
 
@@ -177,7 +167,6 @@ header nav .navbar-brand .nav-logo {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
 .bid-button:hover {
   background-color: #218838;
 }
@@ -216,7 +205,6 @@ header nav .navbar-brand .nav-logo {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
 .next-image-button:hover {
   background-color: #0069d9;
 }
@@ -261,13 +249,155 @@ header nav .navbar-brand .nav-logo {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
-#profile-info {
+.container #profile-info {
   display: flex;
   justify-content: center;
   width: 100%;
 }
-#profile-info .profile-name {
+.container #profile-info .profile-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-top: 50px;
+}
+
+#listing-info {
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.post-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.seller-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.singel-listing-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.single-description {
+  margin-bottom: 20px;
+}
+
+.highestBid, .endDate {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.bid-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.bid-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.bid-button:hover {
+  background-color: #218838;
+}
+
+#media-container {
+  margin-top: 20px;
+}
+
+.image-container {
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  position: relative;
+}
+
+.post-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.div-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.next-image-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.next-image-button:hover {
+  background-color: #0069d9;
+}
+
+#bidders {
+  margin-top: 40px;
+}
+
+.bid-div {
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+.bid-div:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+.bid-user {
+  margin: 0;
+  font-weight: 600;
+  color: #333;
+}
+
+.container .profile-avatar {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 200px;
+  margin-top: 20px;
+}
+.container #btn-edit-avatar {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.container #profile-info {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.container #profile-info .profile-name {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;

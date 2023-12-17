@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if(profileAvatar !== null) {
         navAvatar.src = profileAvatar;
+        navAvatar.alt = 'profile picture';
     } else {
         navAvatar.style.display = 'none';
     }

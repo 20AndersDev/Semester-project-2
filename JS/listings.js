@@ -33,6 +33,7 @@ function displayAuctions(auctions) {
         if (auction.media.length > 0) {
             const image = document.createElement('img');
             image.src = auction.media[0]; 
+            image.alt = 'Listing image';
             image.classList.add('listing-media');
             media.appendChild(image);
 
@@ -74,6 +75,7 @@ function displayAuctions(auctions) {
         const userAvatar = document.createElement('img');
         userAvatar.classList.add('user-avatar');
         userAvatar.src = auction.seller.avatar;
+        userAvatar.alt = 'profile picture';
         sellerInfo.appendChild(userAvatar); 
 
         postHeader.appendChild(sellerInfo);

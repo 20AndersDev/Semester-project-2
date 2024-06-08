@@ -7,6 +7,8 @@
 
 AuctionZone is an website tha lets users list an item they want to sell. Customers can place bid on items they are interested in if they have enough tokens. The bidding roudn is over when the date and time set by the seller is met 
 
+The project can be viewed here: https://dreamy-palmier-2e3ff8.netlify.app/
+
 ## Built With
 
 You can list a the tech stack that you've used over here
